@@ -17,8 +17,9 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-</head>
 
+
+</head>
 <body class="hold-transition skin-purple sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -36,45 +37,68 @@
   <div class="content-wrapper">
     
     <section class="content-header">
-        <form role="form" method="post" id="queryform" name="queryform" action="{{url('admin_storequery')}}">
-        {{ csrf_field() }}
-              <div class="box-body">
-               
-                <div class="form-group">
-                  <label >subject</label>
-                  <input type="text" class="form-control" id="sender_subject" name="sender_subject" placeholder="">
-                </div>
-                
-                     <div class="form-group">
-                  <label >Message</label>
-                 <textarea rows="10" cols="50" name="message" id="message" form="queryform" style="margin: 0px; width: 973px; height: 141px;"></textarea>
-                   
-                 </textarea>
-                  </div>
-                  </div>
-
-   
-
-                  
-            
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary" >Submit</button>
-              </div>
-            </form>
+      
      
     </section>
 
    
     <section class="content">
 
-     
+                             
+                                 <div class="table-responsive">
 
-  
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   
+
+                   <th>USER_ID</th>
+                   <th>NAME</th>
+                    <th>SOURCE_CITY</th>
+                     <th>DESTINATION_CITY</th>
+                     <th>FARE</th>
+                     <th>CAR_NUMBER</th>
+
+
+                     <th>DATE</th>
+                     <th>TIME</th>
+                     <th>SEATS AVAILAIBLE</th>
+                      <th>ADD COMMENT</th>
+
+            <th>VIEW COMMENTS</th>
+                   </thead>
+                   @foreach($ride as $rd)
+    <tbody>
+    
+    <tr>
+
+        <td>{{$rd->user_id}}</td>
+        <td>{{$rd->title}}</td>
+    <td>{{$rd->source_city}}</td>
+    <td>{{$rd->destination_city}}</td>
+     <td>${{$rd->fare}}  rupees</td>
+     <td>{{$rd->car_no}}</td>
+    <td>{{$rd->date}}</td>
+    <td>{{$rd->time}}</td>
+    <td>{{$rd->seats_available}}</td>
+    <td><a href='admin_addquery&<?php echo $rd->id ?>'>add comment</a></td>
+    <td><a href='admin_viewquery&<?php echo $rd->id ?>'>view comment</a></td>
+    </tr>
+    
+
+    </tbody>
+        
+
+
+
+                               
+                            @endforeach
+                            </table>
+</div>
 </section>
 </div>
 </div>
-
 
 
 <!-- jQuery 2.2.3 -->

@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\addride;
+use App\User;
 class query extends Model
 {
 
@@ -20,4 +21,16 @@ class query extends Model
 
 
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
+    public function post(){
+
+        return $this->belongsTo('App\addride');
+
+
+
+
+    }
 }
