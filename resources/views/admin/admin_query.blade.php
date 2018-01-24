@@ -54,6 +54,7 @@
                    
 
                    <th>USER_ID</th>
+                   <th>ride_id</th>
                    <th>NAME</th>
                     <th>SOURCE_CITY</th>
                      <th>DESTINATION_CITY</th>
@@ -74,6 +75,7 @@
     <tr>
 
         <td>{{$rd->user_id}}</td>
+        <td>{{$rd->id}}</td>
         <td>{{$rd->title}}</td>
     <td>{{$rd->source_city}}</td>
     <td>{{$rd->destination_city}}</td>

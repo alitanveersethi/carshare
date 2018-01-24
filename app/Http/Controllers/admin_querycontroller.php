@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 use Auth;
-use addride;
+use App\addride;
 use App\query;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class admin_querycontroller extends Controller
 {
 
-    public function index()
+    public function index($id)
     {
-        //
+        $ride=addride::find($id);
+
+
+        return view('admin.admin_addquery',['ride'=>$ride]);
+
     }
 
     /**
@@ -49,12 +53,16 @@ class admin_querycontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request  )
+
     {
+
+        
         $query=new query();
         $query->sender_email=Auth::User()->email;
         $query->sender_subject=$request->sender_subject;
 
+        $query->post_id=$request->post_id;
         $query->sender_name=Auth::User()->name;
         $query->message=$request->message;
         $query->user_id=Auth::User()->id;

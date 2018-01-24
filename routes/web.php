@@ -66,9 +66,8 @@ Route::post('admin_storequery','admin_querycontroller@store');
 Route::get('admin_addride', function () {
     return view('admin.admin_addride');
 });
-Route::get('admin_addquery&{id}', function () {
-    return view('admin.admin_addquery');
-});
+Route::get('admin_addquery&{id}', 'admin_querycontroller@index');
+
 Route::get('admin_query','admin_querycontroller@create');
 Route::get('admin_editride&{id}','admin_createride@edit');
 Route::post('admin_update&{id}','admin_createride@update');

@@ -40,6 +40,12 @@
         {{ csrf_field() }}
               <div class="box-body">
                
+               <div class="form-group">
+                  <label >Ride ID</label>
+                  <input type="text" class="form-control" id="post_id" name="post_id" value="<?php echo $ride['id'] ?>"   />
+                </div>
+
+
                 <div class="form-group">
                   <label >subject</label>
                   <input type="text" class="form-control" id="sender_subject" name="sender_subject" placeholder="">
@@ -55,7 +61,7 @@
 
    
 
-                  
+                
             
 
               <div class="box-footer">

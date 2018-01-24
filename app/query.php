@@ -18,6 +18,7 @@ class query extends Model
         'sender_name',
         'message',
         'user_id',
+        'post_id',
 
 
     ];
