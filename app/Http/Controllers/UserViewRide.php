@@ -82,7 +82,7 @@ class UserViewRide extends Controller
     }
     public function delete($id)
     {
-        DB::table('query')->where('id',$id)->delete();
+        DB::table('query')->where('user_id', Auth::id())->delete();
         return redirect()->back();
 
     }

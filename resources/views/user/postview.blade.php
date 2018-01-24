@@ -242,8 +242,9 @@
 
 
                                             <p>{{$qu->message}} </p>
-
+@if($qu->user_id==Auth::id())
                                             <span><a href="user_deleteq&<?php echo $qu->id ?>">DELETE </a>   </span>
+                                            @endif
                                         </article>
                                         @endforeach
 

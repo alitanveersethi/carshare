@@ -42,7 +42,7 @@
                 
                 <div class="form-group">
                   <label >from</label>
-                  <input type="text" class="form-control" id="source_city" name="source_city" placeholder="">
+                  <input type="text" class="form-control" id="source_city" name="source_city" placeholder="" required>
                 </div>
                 <div class="form-group">
                   <label >to</label>

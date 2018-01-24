@@ -19,7 +19,7 @@ class query extends Model
         'message',
         'user_id',
         'post_id',
-        
+
 
 
     ];
