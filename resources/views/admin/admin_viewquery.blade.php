@@ -87,6 +87,12 @@ container {
   <p>{{$qu->sender_name}}</p>
   <span class="time-right"></span>
 </div>
+<div class="container">
+    <b>post_id</b>
+  
+  <p>{{$qu->post_id}}</p>
+  <span class="time-right"></span>
+</div>
     <div class="container">
   <b>EMAIL</b>
   <p>{{$qu->sender_email}}</p>

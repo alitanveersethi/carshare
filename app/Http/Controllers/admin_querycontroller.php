@@ -1,17 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
+use Auth;
+use App\addride;
 use App\query;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class admin_querycontroller extends Controller
 {
 
-    public function index()
+    public function index($id)
     {
-        //
+        $ride=addride::find($id);
+
+
+        return view('admin.admin_addquery',['ride'=>$ride]);
+
     }
 
     /**
@@ -19,9 +23,28 @@ class admin_querycontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+
+
+        //$users = User::find(Auth::user()->id);
+        $ride['ride']=DB::table('new_trip')->where('user_id', Auth::id())->get();
+        if (count($ride)>0){
+
+            return view('admin.admin_query',$ride);
+        }
+        else{
+
+
+            return view('admin.admin_query');
+
+
+        }
+
+
+
+
     }
 
     /**
@@ -30,18 +53,23 @@ class admin_querycontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request  )
+
     {
+
+        
         $query=new query();
-        $query->sender_email=$request->sender_email;
+        $query->sender_email=Auth::User()->email;
         $query->sender_subject=$request->sender_subject;
 
-        $query->sender_name=$request->sender_name;
+        $query->post_id=$request->post_id;
+        $query->sender_name=Auth::User()->name;
         $query->message=$request->message;
-        $query->user_id=$request->user_id;
-
+        $query->user_id=Auth::User()->id;
         $query->save();
+
         return redirect('admin');
+
 
 
     }
@@ -95,12 +123,11 @@ class admin_querycontroller extends Controller
     public function update(Request $request, $id)
     {
         $query=new query();
-        $query->sender_email=$request->sender_email;
+
         $query->sender_subject=$request->sender_subject;
-        $query->destination_city=$request->destination_city;
-        $query->sender_name=$request->sender_name;
+
         $query->message=$request->message;
-        $query->user_id=$request->user_id;
+
 
 
 

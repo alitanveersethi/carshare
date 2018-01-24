@@ -30,9 +30,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('admin_addquery')}}"><i class="fa fa-circle-o"></i>Add query</a></li>
+            <li><a href="{{url('admin_query')}}"><i class="fa fa-circle-o"></i>Query</a></li>
           
-            <li><a href="{{url('admin_viewquery')}}"><i class="fa fa-circle-o"></i>view query/edit query</a></li>
+            
           </ul>
         </li>
 
