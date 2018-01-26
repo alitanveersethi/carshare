@@ -63,6 +63,7 @@ Route::get('admin_viewride','admin_createride@show');
 Route::post('admin_storeride','admin_createride@store');
 Route::get('admin_viewquery&{id}','admin_querycontroller@show');
 Route::post('admin_storequery','admin_querycontroller@store');
+Route::post('user_storequery','UserViewRide@store');
 Route::get('admin_addride', function () {
     return view('admin.admin_addride');
 });
@@ -72,6 +73,7 @@ Route::get('admin_query','admin_querycontroller@create');
 Route::get('admin_editride&{id}','admin_createride@edit');
 Route::post('admin_update&{id}','admin_createride@update');
 Route::get('admin_delete&{id}','admin_createride@delete');
+Route::get('user_deleteq&{id}','UserViewRide@delete');
 
 
 Auth::routes();

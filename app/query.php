@@ -21,6 +21,7 @@ class query extends Model
         'post_id',
 
 
+
     ];
     public function user()
     {

@@ -58,14 +58,14 @@
 
                                                     <div class="col-md-5 col-sm-3 col-xs-12">
                                                         <div class="field">
-                                                            <input type="text" id='source_city' name="source_city" value="SOURCE" ></input>
+                                                            <input style="text-transform: uppercase" type="text" id='source_city' name="source_city" placeholder="SOURCE" ></input>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-5 col-sm-3 col-xs-12">
 
                                                         <div class="field">
-                                                            <input type="text" id='destination_city' name="destination_city" value="DESTINATION" ></input>         </div>
+                                                            <input style="text-transform: uppercase" type="text" id='destination_city' name="destination_city" placeholder="DESTINATION" ></input>         </div>
 
                                                     </div>
 

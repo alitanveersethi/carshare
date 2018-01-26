@@ -152,7 +152,7 @@
                                 
                                     
                                     <div class="ride-content">
-                                        <h3><B><a href="#">FROM {{$ride->source_city}} TO  {{$ride->destination_city}}</a></h3>RIDE BY <a href="#">{{$ride->title}}</B></a>
+                                        <h3><B><a href="#" style="text-transform: uppercase" >FROM {{$ride->source_city}} TO  {{$ride->destination_city}}</a></h3>RIDE BY <a style="text-transform: uppercase" href="#">{{$ride->title}}</B></a>
                                     </div>
                                     <div>
 
@@ -161,13 +161,13 @@
                                         <li class="ride-date">
                                             <a href="#" class="tooltip-link" data-original-title="Date" data-toggle="tooltip">
                                                 <i class="fa fa-calendar"></i>
-                                                <B>TIME : {{$ride->date}} at {{$ride->time}}</B>
+                                                <B style="text-transform: uppercase" >TIME : {{$ride->date}} at {{$ride->time}}</B>
                                             </a>
                                         </li><!-- end .ride-date -->
 
                                         <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="Number of seats" data-toggle="tooltip">
-                                                <i class="fa fa-user"></i><B>
+                                                <i class="fa fa-user"></i><B style="text-transform: uppercase" >
                                                SEATS : {{$ride->seats_available}}
                                            </B>
                                      </a>
@@ -176,25 +176,25 @@
                                          <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="fare" >
                                                 <i ></i>
-                                                <B> FARE : Rs {{$ride->fare}} </B>
+                                                <B style="text-transform: uppercase" > FARE : Rs {{$ride->fare}} </B>
                                             </a>
                                         </li>
                                          <li class="ride-content">
                                             <a href="#"  data-original-title="fare" >
                                                 <i ></i>
-                                                <B>  DRIVER EMAIL: {{$ride->User->email}} </B>
+                                                <B style="text-transform: uppercase"  >  DRIVER EMAIL: {{$ride->User->email}} </B>
                                             </a>
                                         </li>
                                          <li class="ride-content">
                                             <a href="#" class="tooltip-link" data-original-title="identity card number" >
                                                 <i ></i>
-                                                <B>  DRIVER CNIC: {{$ride->User->cnic}} </B>
+                                                <B style="text-transform: uppercase"  >  DRIVER CNIC: {{$ride->User->cnic}} </B>
                                             </a>
                                         </li>
                                           <li class="ride-content">
                                             <a href="#" class="tooltip-link" data-original-title="cell number" >
                                                 <i ></i>
-                                                <B>  CONTACT: {{$ride->User->cell_no}} </B>
+                                                <B style="text-transform: uppercase"  >  CONTACT: {{$ride->User->cell_no}} </B>
                                             </a>
                                         </li>
 
@@ -218,8 +218,10 @@
                             <div class="comments-area" id="comments">
 
                                 <!-- Begin Comments -->
+                                
 
-                                <h3>5 Comments</h3>
+                                <h3>Comments</h3>
+                                @foreach($query as $qu)
 
                                 <ol class="commentslist">
 
@@ -230,158 +232,27 @@
                                             <header>
 
                                                 <div class="comment-user-name">
-                                                    <a href="#">Jane Doe </a>
+                                                    <a style="text-transform: uppercase;"  >{{$qu->sender_name}}</a>
                                                 </div>
 
-                                                <span>Posted on July 22, 2013 at 15:00 PM </span>
+                                                <span style="text-transform: uppercase;">Posted on {{$qu->created_at}}</span>
+
 
                                             </header>
 
-                                            <figure class="comment-avatar">
-                                                <img alt='' src='img/avatar-1.jpg' class='avatar avatar-80 photo avatar-default' height='80' width='80' />
-                                            </figure>
 
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus diam turpis, mattis sed turpis in, pulvinar cursus sapien. Mauris neque risus, condimentum sed ante quis, porttitor euismod mi. </p>
-
-                                            <a class='comment-reply-link btn green-color'>Reply</a>
+                                            <p>{{$qu->message}} </p>
+@if($qu->user_id==Auth::id())
+                                            <span><a href="user_deleteq&<?php echo $qu->id ?>">DELETE </a>   </span>
+                                            @endif
                                         </article>
+                                        @endforeach
 
-                                        <ul class='children'>
-
-                                            <li id="comment-4">
-
-                                                <article class="comment clearfix ">
-
-                                                    <header>
-
-                                                        <div class="comment-user-name">
-                                                            John Doe
-                                                        </div>
-
-                                                        <span>Posted on July 22, 2013 at 15:22 PM  </span>
-
-                                                    </header>
-
-                                                    <figure class="comment-avatar">
-                                                        <img alt='' src='img/avatar-2.jpg' class='avatar avatar-80 photo avatar-default' height='80' width='80' />
-                                                    </figure>
-
-
-                                                    <p>Nulla ullamcorper et justo ut tincidunt. Nulla vehicula ante in enim dictum molestie. Donec arcu metus, faucibus non felis eget, vulputate laoreet tellus. Nullam eget accumsan tellus, eget efficitur massa. Vivamus rhoncus, metus quis posuere tristique, massa lacus malesuada lectus, in pulvinar mauris tellus a mi.</p>
-
-                                                    <a class='comment-reply-link btn green-color'>Reply</a>
-
-                                                </article>
-
-                                                <ul class='children'>
-
-                                                    <li id="comment-5">
-
-                                                        <article class="comment clearfix ">
-
-                                                            <header>
-
-
-                                                                <div class="comment-user-name">
-                                                                    Jane Doe
-                                                                </div>
-
-                                                                <span>Posted on July 22, 2013 at 15:40 PM </span>
-
-                                                            </header>
-
-                                                            <figure class="comment-avatar">
-                                                                <img alt='' src='img/avatar-1.jpg' class='avatar avatar-80 photo avatar-default' height='80' width='80' />
-                                                            </figure>
-
-                                                            <p>Praesent ut iaculis nisl, eget semper elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce a pretium sem. Duis vehicula sed lacus non malesuada. Praesent tincidunt laoreet dui nec faucibus.</p>
-
-                                                            <a class='comment-reply-link btn green-color'>Reply</a>
-                                                        </article>
-
-                                                        <ul class='children'>
-
-                                                            <li id="comment-6">
-
-                                                                <article class="comment  clearfix">
-
-                                                                    <header>
-
-                                                                        <div class="comment-user-name">
-                                                                            John Doe
-                                                                        </div>
-
-                                                                        <span>Posted on July 22, 2013 at 15:45 PM  </span>
-
-                                                                    </header>
-
-                                                                    <figure class="comment-avatar">
-                                                                        <img alt='' src='img/avatar-2.jpg' class='avatar avatar-80 photo avatar-default' height='80' width='80' />
-                                                                    </figure>
-
-                                                                    <p>Maecenas eu ligula ac felis imperdiet efficitur. Nunc neque ligula, elementum sit amet est nec, fringilla euismod ligula. Proin auctor, purus ac scelerisque vehicula, diam elit scelerisque felis, a bibendum sapien lectus ac est. Proin malesuada ligula in vulputate dictum. Sed malesuada fringilla erat eget malesuada. </p>
-
-                                                                    <a class='comment-reply-link btn green-color'>Reply</a>
-                                                                </article>
-
-                                                                <ul class='children'>
-
-                                                                    <li id="comment-7">
-
-                                                                        <article class="comment  clearfix">
-
-                                                                            <header>
-
-                                                                                <div class="comment-user-name">
-                                                                                    Jane Doe
-                                                                                </div>
-
-                                                                                <span>Posted on July 22, 2013 at 15:46 PM  </span>
-
-                                                                            </header>
-
-                                                                            <figure class="comment-avatar">
-                                                                                <img alt='' src='img/avatar-1.jpg' class='avatar avatar-80 photo avatar-default' height='80' width='80' />
-                                                                            </figure>
-
-                                                                            <p>Curabitur non pharetra quam. Donec non turpis cursus, laoreet justo in, vulputate velit. Donec eleifend nunc id orci blandit, in vulputate ipsum gravida. In sapien massa, porttitor in elit id, interdum aliquam mauris. </p>
-
-                                                                            <a class='comment-reply-link btn green-color'>Reply</a>
-                                                                        </article>
-
-                                                                    </li>
-
-                                                                </ul><!-- end .children -->
-                                                            </li>
-                                                        </ul><!-- end .children -->
-
-                                                    </li>
-                                                </ul><!-- end .children -->
-
-                                            </li>
-                                        </ul><!-- end .children -->
-                                    </li>
+                                                                            </li>
 
                                 </ol><!-- end .commentslist -->
 
-                                <div class="comment-nav clearfix">
-                                    <div class="prev pull-left">
-
-                                        <a href="#">
-                                            <i class="fa fa-chevron-left"></i>
-                                            Prev Comments
-                                        </a>
-
-                                    </div>
-                                    <div class="next pull-right">
-
-                                        <a href="#">
-                                            Next Comments
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
+                            
 
                                 <div class="clearfix"></div>
 
@@ -391,20 +262,18 @@
 
                                     <h3 id="reply-title">Leave a Reply</h3>
 
-                                    <form id="comment-form" action="" novalidate autocomplete="off" class="idealforms addcomment">
+                                    <form id="comment-form" action="{{url('user_storequery')}}" novalidate autocomplete="off" class="idealforms addcomment" method="POST">
+                                    {{ csrf_field() }}
 
                                         <div class="field">
-                                            <input name="username" type="text" placeholder="Name">
+                                            <input name="post_id" type="text" placeholder="ID"   value="<?php echo $ride['id'] ?>" >
                                             <span class="error"></span>
                                         </div>
 
-                                        <div class="field">
-                                            <input name="email" type="email" placeholder="Email address" >
-                                            <span class="error"></span>
-                                        </div>
+                                       
 
                                         <div class="field">
-                                            <input  name="website" type="text"  placeholder="Website" >
+                                            <input  id="sender_subject" name="sender_subject" type="text"  placeholder="subject" >
                                             <span class="error"></span>
                                         </div>
 
@@ -448,7 +317,7 @@
                     <div class="row">
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            Copyright by My ride
+                       have a save ride
                         </div>
 
                     </div><!-- end .row -->
@@ -458,95 +327,7 @@
 
         </footer><!-- end #footer -->
 
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div><!-- end .modal-header -->
-
-                    <div class="modal-body">
-                        <form action="" novalidate autocomplete="off" class="idealforms login">
-
-                            <div class="log-header">
-                                <span class="log-in">Log in</span>
-                            </div>
-
-                            <div class="field">
-                                <input name="username" type="text" placeholder="Username">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="field">
-                                <input type="password" name="password" placeholder="Password">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="field buttons">
-                                <button type="submit" class="submit btn green-color">Log in</button>
-                            </div>
-
-                            <a href="#" class="log-twitter twitter"><i class="fa fa-twitter"></i>Twitter</a>
-                            <a href="#" class="log-facebook facebook"><i class="fa fa-facebook"></i>Facebook</a>
-
-                            <div class="clearfix"></div>
-
-                        </form><!-- end .login -->
-                    </div><!-- end .modal-body -->
-
-                </div><!-- end .modal-content -->
-            </div><!-- end .modal-dialog -->
-        </div><!-- end .modal -->
-
-        <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-
-                    <div class="modal-body">
-                        <form action="" novalidate autocomplete="off" class="idealforms reg">
-
-                            <div class="log-header">
-                                <span class="log-in">Sign up</span>
-                            </div>
-
-                            <div class="field">
-                                <input name="username" type="text" placeholder="Username">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="field">
-                                <input name="email" type="email"  placeholder="E-Mail">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="field">
-                                <input type="password" name="password" placeholder="Password">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="field">
-                                <input name="confirmpass" type="password"  placeholder="Password">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="field buttons">
-                                <button type="submit" class="submit btn green-color">Sign up</button>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                        </form><!-- end .reg -->
-                    </div><!-- end .modal-body -->
-
-                </div><!-- end .modal-content -->
-            </div><!-- end .modal-dialog -->
-        </div><!-- end .modal -->
-
+        
         <!-- Javascript -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Bootstrap -->

@@ -57,7 +57,7 @@ class admin_querycontroller extends Controller
 
     {
 
-        
+
         $query=new query();
         $query->sender_email=Auth::User()->email;
         $query->sender_subject=$request->sender_subject;
@@ -80,10 +80,10 @@ class admin_querycontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show( $id)
     {
 
-        $query['query']=DB::table('query')->get();
+        $query['query']=DB::table('query')->where('post_id',$id)->get();
         if (count($query)>0){
 
             return view('admin.admin_viewquery',$query);
@@ -148,7 +148,7 @@ class admin_querycontroller extends Controller
     public function delete($id)
     {
         DB::table('query')->where('id',$id)->delete();
-        return redirect('admin_viewquery');
+        return redirect()->back();
 
     }
 

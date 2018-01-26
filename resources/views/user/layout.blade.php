@@ -77,29 +77,29 @@
                                 <article class="ride-box clearfix">
 
                                     <div class="ride-content">
-                                        <h3><a href="#">{{$rd->source_city}} to {{$rd->destination_city}}</a></h3>ride by <a href="#">{{$rd->title}}</a>
+                                        <h3><a style="text-transform: uppercase" href="#">{{$rd->source_city}} to {{$rd->destination_city}}</a></h3>ride by <a style="text-transform: uppercase" href="#">{{$rd->title}}</a>
                                     </div>
 
                                     <ul class="ride-meta">
 
                                         <li class="ride-date">
                                             <a href="#" class="tooltip-link" data-original-title="Date" data-toggle="tooltip">
-                                                <i class="fa fa-calendar"></i>
+                                                <i style="text-transform: uppercase" class="fa fa-calendar"></i>
                                                 {{$rd->date}} at {{$rd->time}}
                                             </a>
                                         </li><!-- end .ride-date -->
 
                                         <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="Number of seats" data-toggle="tooltip">
-                                                <i class="fa fa-user"></i>
+                                                <i style="text-transform: uppercase" class="fa fa-user"></i>
                                                 {{$rd->seats_available}}
                                             </a>
                                         </li>
 
                                          <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="fare" >
-                                                <i ></i>
-                                                  Rs{{$rd->fare}}
+                                                <i style="text-transform: uppercase" >Rs{{$rd->fare}}</i>
+                                                  
                                             </a>
                                         </li>
 

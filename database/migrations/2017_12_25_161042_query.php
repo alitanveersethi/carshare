@@ -19,6 +19,7 @@ class query extends Migration
             $table->string('sender_subject');
             $table->string('sender_name');
             $table->longText('message');
+
             $table->integer('user_id')->unsigned();
             $table->integer('post_id')->unsigned();
             $table->timestamps();
