@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="superAdmin")
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -17,10 +19,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-  <style>
-    body {background-image: url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');}
-  </style>
-
+  
 
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
@@ -38,9 +37,9 @@
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<div class="content-wrapper" >
     
-    <section class="content-header">
+    <section class="content-header" >
       
      
     </section>
@@ -70,3 +69,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

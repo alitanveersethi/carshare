@@ -6,14 +6,19 @@ use App\query;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\report_model;
-
+use App\addride;
+use App\User;
+use Auth;
 class query_controller extends Controller
 {
 
 
-    public function index()
+    public function index($id)
     {
-        //
+        $ride=addride::find($id);
+
+
+        return view('superadmin.addquery',['ride'=>$ride]);
     }
 
     /**
@@ -23,7 +28,18 @@ class query_controller extends Controller
      */
     public function create()
     {
-        //
+        $ride['ride']=DB::table('new_trip')->get();
+        if (count($ride)>0){
+
+            return view('superadmin.query',$ride);
+        }
+        else{
+
+
+            return view('superadmin.query');
+
+
+        }
     }
 
     /**
@@ -35,14 +51,15 @@ class query_controller extends Controller
     public function store(Request $request)
     {
         $query=new query();
-        $query->sender_email=$request->sender_email;
-        $query->sender_subject=$request->sender_subject;
+        $query->sender_email=Auth::User()->email;
 
-        $query->sender_name=$request->sender_name;
+
+        $query->post_id=$request->post_id;
+        $query->sender_name=Auth::User()->name;
         $query->message=$request->message;
-        $query->user_id=$request->user_id;
-
+        $query->user_id=Auth::User()->id;
         $query->save();
+
         return redirect('superadmin');
 
 
@@ -54,10 +71,10 @@ class query_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
 
-        $query['query']=DB::table('query')->get();
+        $query['query']=DB::table('query')->where('post_id',$id)->get();
         if (count($query)>0){
 
             return view('superadmin.viewquery',$query);
@@ -122,8 +139,9 @@ class query_controller extends Controller
      */
     public function delete($id)
     {
+
         DB::table('query')->where('id',$id)->delete();
-        return redirect('viewquery');
+        return redirect()->back();
 
     }
     public function ViewReport(){

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="Admin")
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -48,44 +49,40 @@
                                  <div class="table-responsive">
 
                 
-              <table id="mytable" class="table table-bordred table-striped">
+            <table id="mytable" class="table table-bordred"  >
                    
-                   <thead>
+                   <thead style="background-color:#404242; color: white"  >
                    
-
-                   <th>USER_ID</th>
-                   <th>ride_id</th>
-                   <th>NAME</th>
-                    <th>SOURCE_CITY</th>
-                     <th>DESTINATION_CITY</th>
-                     <th>FARE</th>
-                     <th>CAR_NUMBER</th>
+                   
+                   <th><B>DRIVER NAME</B> </th>
+                    <th><B>FROM</B></th>
+                     <th><B>TO</B></th>
+                     <th><B>FARE</B></th>
+                     <th><B>CAR NUMBE</B></th>
 
 
-                     <th>DATE</th>
-                     <th>TIME</th>
-                     <th>SEATS AVAILAIBLE</th>
-                      <th>ADD COMMENT</th>
+                     <th><B>DATE</B></th>
+                     <th><B>TIME</B></th>
+                     <th><B>SEATS AVAILAIBLE</B></th>
+                      <th><B>Edit</B></th>
 
-            <th>VIEW COMMENTS</th>
+            <th><B>Delete</B></th>
                    </thead>
                    @foreach($ride as $rd)
     <tbody>
     
     <tr>
-
-        <td>{{$rd->user_id}}</td>
-        <td>{{$rd->id}}</td>
-        <td>{{$rd->title}}</td>
-    <td>{{$rd->source_city}}</td>
-    <td>{{$rd->destination_city}}</td>
-     <td>${{$rd->fare}}  rupees</td>
-     <td>{{$rd->car_no}}</td>
-    <td>{{$rd->date}}</td>
-    <td>{{$rd->time}}</td>
-    <td>{{$rd->seats_available}}</td>
-    <td><a href='admin_addquery&<?php echo $rd->id ?>'>add comment</a></td>
-    <td><a href='admin_viewquery&<?php echo $rd->id ?>'>view comment</a></td>
+    
+    <td style="text-transform: uppercase"><B>{{$rd->title}}</B></td>
+    <td style="text-transform: uppercase"><B>{{$rd->source_city}}</B></td>
+    <td style="text-transform: uppercase"><B>{{$rd->destination_city}}</B></td>
+     <td style="text-transform: uppercase"><B>${{$rd->fare}}  rupees</B></td>
+     <td style="text-transform: uppercase" ><B>{{$rd->car_no}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
+    <td><a href='admin_addquery&<?php echo $rd->id ?>'><b>ADD COMMENT</b></a></td>
+    <td><a href='admin_viewquery&<?php echo $rd->id ?>'><b>VIEW COMMENT</b></a></td>
     </tr>
     
 
@@ -117,3 +114,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="Admin")
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -36,24 +37,29 @@
   <div class="content-wrapper">
     
     <section class="content-header">
-        <form role="form" method="post" id="queryform" name="queryform" action="{{url('admin_storequery')}}">
+    <div class="panel-heading"><b><h3>ADD COMMENT</h3></b></div>
+     
+    </section>
+
+   
+    <section class="content" >
+     <div class="panel " style="background-color:#404242; color: white"   >
+                
+                <div class="panel-body" style="background-color:#404242; color: white">
+
+         <form role="form" method="post" id="queryform" name="queryform" action="{{url('admin_storequery')}}">
         {{ csrf_field() }}
               <div class="box-body">
                
                <div class="form-group">
-                  <label >Ride ID</label>
+                  <label ><B>RIDE ID</B></label>
                   <input type="text" class="form-control" id="post_id" name="post_id" value="<?php echo $ride['id'] ?>"   />
                 </div>
 
-
-                <div class="form-group">
-                  <label >subject</label>
-                  <input type="text" class="form-control" id="sender_subject" name="sender_subject" placeholder="">
-                </div>
                 
                      <div class="form-group">
-                  <label >Message</label>
-                 <textarea rows="10" cols="50" name="message" id="message" form="queryform" style="margin: 0px; width: 973px; height: 141px;"></textarea>
+                  <label ><B>MESSAGE</B></label>
+                 <textarea rows="10" cols="50" name="message" id="message" form="queryform" style=" color:black;    margin: 0px; width: 973px; height: 141px;"></textarea>
                    
                  </textarea>
                   </div>
@@ -68,13 +74,6 @@
                 <button type="submit" class="btn btn-primary" >Submit</button>
               </div>
             </form>
-     
-    </section>
-
-   
-    <section class="content">
-
-     
 
   
 </section>
@@ -97,3 +96,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

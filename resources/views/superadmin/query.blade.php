@@ -2,10 +2,9 @@
 @if(Auth::User()->role=="superAdmin")
 <html>
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>carshare</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -38,42 +37,65 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
-    <section class="content-header"   >
-       <div class="panel-heading"><b><h3>COMMENTS</h3></b></div>
+    <section class="content-header">
+      
      
     </section>
-      @foreach($query as $qu)
 
+   
+    <section class="content">
 
-    <section class="content" style="background-color:#404242; color: white" >
+                             
+                                 <div class="table-responsive">
+
                 
-                
-                
+            <table id="mytable" class="table table-bordred"  >
+                   
+                   <thead style="background-color:#404242; color: white"  >
+                   
+                   
+                   <th><B>DRIVER NAME</B> </th>
+                    <th><B>FROM</B></th>
+                     <th><B>TO</B></th>
+                     <th><B>FARE</B></th>
+                     <th><B>CAR NUMBE</B></th>
 
-    <div class="container">
-    <b>NAME</b>
-  
-  <p><b>{{$qu->sender_name}}</b></p>
-  <span class="time-right"></span>
+
+                     <th><B>DATE</B></th>
+                     <th><B>TIME</B></th>
+                     <th><B>SEATS AVAILAIBLE</B></th>
+                      <th><B>ADD COMMENT|</B></th>
+
+            <th><B>VIEW COMMENT</B></th>
+                   </thead>
+                   @foreach($ride as $rd)
+    <tbody>
+    
+    <tr>
+    
+    <td style="text-transform: uppercase"><B>{{$rd->title}}</B></td>
+    <td style="text-transform: uppercase"><B>{{$rd->source_city}}</B></td>
+    <td style="text-transform: uppercase"><B>{{$rd->destination_city}}</B></td>
+     <td style="text-transform: uppercase"><B>${{$rd->fare}}  rupees</B></td>
+     <td style="text-transform: uppercase" ><B>{{$rd->car_no}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
+    <td><a href='addquery&<?php echo $rd->id ?>'><b>ADD COMMENT</b></a></td>
+    <td><a href='viewquery&<?php echo $rd->id ?>'><b>VIEW COMMENT</b></a></td>
+    </tr>
+    
+
+    </tbody>
+        
+
+
+
+                               
+                            @endforeach
+                            </table>
 </div>
-
-    <div class="container">
-  <b>EMAIL</b>
-  <p><b>{{$qu->sender_email}}</b></p>
-  <span class="time-right"></span>
-</div>
-
-
-<div class="container darker">
-  <b>MESSAGE</b>
-  <p><b>{{$qu->message}}</b></p>
-  <span class="time-left"></span>
-</div>
-  <div class="container darker">
-  <b>TIME/DATE</b>
-  <p><b>{{$qu->created_at}}</b></p>
 </section>
-@endforeach
 </div>
 </div>
 
@@ -92,10 +114,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
-
-
 @else
-
 <script type="text/javascript"> window.location = "login"; </script>
+
 
 @endif

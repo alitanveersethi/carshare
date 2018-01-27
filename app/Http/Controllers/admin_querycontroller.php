@@ -60,7 +60,7 @@ class admin_querycontroller extends Controller
 
         $query=new query();
         $query->sender_email=Auth::User()->email;
-        $query->sender_subject=$request->sender_subject;
+
 
         $query->post_id=$request->post_id;
         $query->sender_name=Auth::User()->name;
@@ -124,7 +124,7 @@ class admin_querycontroller extends Controller
     {
         $query=new query();
 
-        $query->sender_subject=$request->sender_subject;
+
 
         $query->message=$request->message;
 

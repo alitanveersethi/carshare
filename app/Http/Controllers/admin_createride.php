@@ -118,7 +118,7 @@ class admin_createride extends Controller
         $ride->fare=$request->fare;
         $ride->car_no=$request->car_no;
         $ride->date=$request->date;
-        $ride->user_id=$request->user_id;
+        $ride->user_id=Auth::User()->id;
 
 
         $ride->save();

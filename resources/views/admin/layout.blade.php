@@ -1,4 +1,7 @@
+ 
 <!DOCTYPE html>
+@if(Auth::User()->role=="Admin")
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -66,3 +69,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

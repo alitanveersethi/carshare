@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel " style="background-color:#404242; color: white" >
                 <div class="panel-heading">Register</div>
-                <div class="panel-body">
+                <div class="panel-body" style="background-color:#404242; color: white"  >
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('cell_no') ? ' has-error' : '' }}">
-                            <label for="cell_no" class="col-md-4 control-label">cell_no</label>
+                            <label for="cell_no" class="col-md-4 control-label">Contact#</label>
 
                             <div class="col-md-6">
                                 <input id="cell_no" type="number" class="form-control" name="cell_no" value="{{ old('cell_no') }}" required autofocus>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('cnic') ? ' has-error' : '' }}">
-                            <label for="cnic" class="col-md-4 control-label">cnic</label>
+                            <label for="cnic" class="col-md-4 control-label">National Identity Card NUmber</label>
 
                             <div class="col-md-6">
                                 <input id="cnic" type="number" class="form-control" name="cnic" value="{{ old('cnic') }}" required autofocus>

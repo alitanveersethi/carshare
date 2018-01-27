@@ -1,48 +1,11 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="Admin")
 <html>
 <head>
-<style>
-container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-}
 
-/* Darker chat container */
-.darker {
-    border-color: #ccc;
-    background-color: #ddd;
-}
-
-/* Clear floats */
-.container::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Style images */
-
-/* Style the right image */
-
-
-/* Style time text */
-.time-right {
-    float: right;
-    color: #aaa;
-}
-
-/* Style time text */
-.time-left {
-    float: left;
-    color: #999;
-}
-</style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>car share</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -75,50 +38,40 @@ container {
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
-    <section class="content-header">
-      
+    <section class="content-header"   >
+       <div class="panel-heading"><b><h3>COMMENTS</h3></b></div>
      
     </section>
       @foreach($query as $qu)
-    <section class="content" >
+
+
+    <section class="content" style="background-color:#404242; color: white" >
+                
+                
+                
+
     <div class="container">
     <b>NAME</b>
   
-  <p>{{$qu->sender_name}}</p>
+  <p><b>{{$qu->sender_name}}</b></p>
   <span class="time-right"></span>
 </div>
-<div class="container">
-    <b>post_id</b>
-  
-  <p>{{$qu->post_id}}</p>
-  <span class="time-right"></span>
-</div>
+
     <div class="container">
   <b>EMAIL</b>
-  <p>{{$qu->sender_email}}</p>
+  <p><b>{{$qu->sender_email}}</b></p>
   <span class="time-right"></span>
 </div>
 
-
-
-
-
-
-<div class="container">
-
-  <b>SUBJECT</b>
-  <p>{{$qu->sender_subject}}</p>
-  <span class="time-right"></span>
-</div>
 
 <div class="container darker">
   <b>MESSAGE</b>
-  <p>{{$qu->message}}</p>
+  <p><b>{{$qu->message}}</b></p>
   <span class="time-left"></span>
 </div>
   <div class="container darker">
   <b>TIME/DATE</b>
-  <p>{{$qu->created_at}}</p>
+  <p><b>{{$qu->created_at}}</b></p>
 </section>
 @endforeach
 </div>
@@ -139,5 +92,9 @@ container {
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
 
+
+@endif
 

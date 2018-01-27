@@ -6,7 +6,7 @@
 
         <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>My ride - Single article</title>
+        <title>CARSHARE</title>
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -272,10 +272,6 @@
 
                                        
 
-                                        <div class="field">
-                                            <input  id="sender_subject" name="sender_subject" type="text"  placeholder="subject" >
-                                            <span class="error"></span>
-                                        </div>
 
                                         <div class="full-fild">
                                             <textarea name="message" id="message" cols="5" placeholder="Message" rows="4"></textarea>

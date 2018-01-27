@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
-<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
-    <head>
 
-        <!-- Basic Page Needs -->
+ <html class="not-ie no-js" lang="en">  
+
+     
         <meta charset="utf-8">
         <title>Car Share</title>
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Mobile Specific Metas -->
+     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Styles -->
-
-        <!-- Bootstrap -->
+       
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Forms -->
         <link href="css/jquery.idealforms.css" rel="stylesheet">
@@ -34,12 +30,7 @@
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+       
 
     </head>
     
@@ -47,21 +38,12 @@
     <body>
     @include('user.header.header')
     <section class="main-content">
-
-            <div class="container">
-                <div class="row">
-
-                    <div class="page-content">
-
-                        
-                        
-
-            <div class="last-rides">
+<div class="last-rides">
 
                            <div class="col-md-12 col-sm-12 col-xs-12">
 
                         <div class="page-sub-title textcenter">
-                            <h2>last rides</h2>
+                            <h2><b>LAST RIDES</b></h2>
                             <div class="line"></div>
                         </div><!-- end .page-sub-title -->
 
@@ -77,28 +59,28 @@
                                 <article class="ride-box clearfix">
 
                                     <div class="ride-content">
-                                        <h3><a style="text-transform: uppercase" href="#">{{$rd->source_city}} to {{$rd->destination_city}}</a></h3>ride by <a style="text-transform: uppercase" href="#">{{$rd->title}}</a>
+                                        <h3><b><a style="text-transform: uppercase" href="#">{{$rd->source_city}} to {{$rd->destination_city}}</a></b></h3><b> RIDE BY   <a style="text-transform: uppercase" href="#"><h3>{{$rd->title}}</h3></a></b>
                                     </div>
 
                                     <ul class="ride-meta">
 
                                         <li class="ride-date">
                                             <a href="#" class="tooltip-link" data-original-title="Date" data-toggle="tooltip">
-                                                <i style="text-transform: uppercase" class="fa fa-calendar"></i>
+                                                <i style="text-transform: uppercase" class="fa fa-calendar"></i><b>
                                                 {{$rd->date}} at {{$rd->time}}
-                                            </a>
+                                            </a></b>
                                         </li><!-- end .ride-date -->
 
                                         <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="Number of seats" data-toggle="tooltip">
-                                                <i style="text-transform: uppercase" class="fa fa-user"></i>
-                                                {{$rd->seats_available}}
+                                                <i style="text-transform: uppercase" class="fa fa-user"></i><b>
+                                                {{$rd->seats_available}}</b>
                                             </a>
                                         </li>
 
                                          <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="fare" >
-                                                <i style="text-transform: uppercase" >Rs{{$rd->fare}}</i>
+                                                <i style="text-transform: uppercase" ><b>Rs{{$rd->fare}}</b></i>
                                                   
                                             </a>
                                         </li>
@@ -107,7 +89,7 @@
                                         <li>
                                             <button href="#">
                                                 
-                                                <a href="postview&<?php echo $rd->id ?>" class="btn  btn-success btn-xs">READ MORE</a>
+                                                <a href="postview&<?php echo $rd->id ?>" class="btn  btn-success btn-xs"><b>READ MORE</b></a>
                                             </button>
                                         </li>
 
@@ -117,7 +99,7 @@
                                 @endforeach
 
                               
-                                <div class="clearfix"></div>
+                            
 
                                
 

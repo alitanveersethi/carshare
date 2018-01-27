@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="superAdmin")
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -17,9 +18,6 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <style>
-        body {background-image: url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');}
-    </style>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -39,23 +37,28 @@
   <div class="content-wrapper">
     
     <section class="content-header">
-        <form role="form" method="post" id="queryform" name="queryform" action="{{url('storequery')}}">
+    <div class="panel-heading"><b><h3>ADD COMMENT</h3></b></div>
+     
+    </section>
+
+   
+    <section class="content" >
+     <div class="panel " style="background-color:#404242; color: white"   >
+                
+                <div class="panel-body" style="background-color:#404242; color: white">
+
+         <form role="form" method="post" id="queryform" name="queryform" action="{{url('storequery')}}">
         {{ csrf_field() }}
               <div class="box-body">
-                <div class="form-group">
-                  <label >sender email</label>
-                  <input type="email" class="form-control" id="sender_email"  name="sender_email"placeholder="title">
+               
+               <div class="form-group">
+                  <label ><B>RIDE ID</B></label>
+                  <input type="text" class="form-control" id="post_id" name="post_id" value="<?php echo $ride['id'] ?>"   />
                 </div>
-                <div class="form-group">
-                  <label >subject</label>
-                  <input type="text" class="form-control" id="sender_subject" name="sender_subject" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label >sender name</label>
-                  <input type="text" id="sender_name" name="sender_name"    class="form-control">
-                  </div>
+
+                
                      <div class="form-group">
-                  <label >Message</label>
+                  <label ><B>MESSAGE</B></label>
                  <textarea rows="10" cols="50" name="message" id="message" form="queryform" style="margin: 0px; width: 973px; height: 141px;"></textarea>
                    
                  </textarea>
@@ -64,20 +67,13 @@
 
    
 
-                  
+                
             
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary" >Submit</button>
               </div>
             </form>
-     
-    </section>
-
-   
-    <section class="content">
-
-     
 
   
 </section>
@@ -100,3 +96,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

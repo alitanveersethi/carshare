@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="Admin")
 <html>
 <head>
   <meta charset="utf-8">
@@ -44,46 +45,43 @@
    
     <section class="content">
 
-                             
-                                 <div class="table-responsive">
+                                           <div class="table-responsive">
 
                 
-              <table id="mytable" class="table table-bordred table-striped">
+              <table id="mytable" class="table table-bordred"  >
                    
-                   <thead>
+                   <thead style="background-color:#404242; color: white"  >
                    
+                   
+                   <th><B>DRIVER NAME</B> </th>
+                    <th><B>FROM</B></th>
+                     <th><B>TO</B></th>
+                     <th><B>FARE</B></th>
+                     <th><B>CAR NUMBE</B></th>
 
-                   <th>user id</th>
-                   <th>name</th>
-                    <th>source city</th>
-                     <th>destination  city</th>
-                     <th>fare</th>
-                     <th>car number</th>
 
+                     <th><B>DATE</B></th>
+                     <th><B>TIME</B></th>
+                     <th><B>SEATS AVAILAIBLE</B></th>
+                      <th><B>Edit</B></th>
 
-                     <th>date</th>
-                     <th>time</th>
-                     <th>seats availaible</th>
-                      <th>Edit</th>
-
-            <th>Delete</th>
+            <th><B>Delete</B></th>
                    </thead>
                    @foreach($ride as $rd)
     <tbody>
     
     <tr>
-
-        <td>{{$rd->user_id}}</td>
-        <td>{{$rd->title}}</td>
-    <td>{{$rd->source_city}}</td>
-    <td>{{$rd->destination_city}}</td>
-     <td>${{$rd->fare}}  rupees</td>
-     <td>{{$rd->car_no}}</td>
-    <td>{{$rd->date}}</td>
-    <td>{{$rd->time}}</td>
-    <td>{{$rd->seats_available}}</td>
-    <td><a href='admin_editride&<?php echo $rd->id ?>'>edit</a></td>
-    <td><a href='admin_delete&<?php echo $rd->id ?>'>delete</a></td>
+    
+    <td style="text-transform: uppercase"><B>{{$rd->title}}</B></td>
+    <td style="text-transform: uppercase"><B>{{$rd->source_city}}</B></td>
+    <td style="text-transform: uppercase"><B>{{$rd->destination_city}}</B></td>
+     <td style="text-transform: uppercase"><B>${{$rd->fare}}  rupees</B></td>
+     <td style="text-transform: uppercase" ><B>{{$rd->car_no}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
+    <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
+    <td  ><B><a href='admin_editride&<?php echo $rd->id ?>'>EDIT</a></B></td>
+    <td><B><a href='admin_delete&<?php echo $rd->id ?>'>DELETE</a></B></td>
     </tr>
     
 
@@ -115,3 +113,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif
