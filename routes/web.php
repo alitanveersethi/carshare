@@ -34,6 +34,7 @@ Route::get('superadmin', function () {
 });
 Route::get('user','UserViewRide@showHome');
 Route::get('user_viewride','UserViewRide@show');
+Route::get('map&{id}','UserViewRide@map');
 Route::get('addride', function () {
     return view('superadmin.addride');
 });

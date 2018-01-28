@@ -86,4 +86,16 @@ class UserViewRide extends Controller
         return redirect()->back();
 
     }
+
+    public function map($id)
+    {
+        $ride=addride::find($id);
+        $source=$ride->source_city;
+        $dest=$ride->destination_city;
+        return view('map',compact('source','dest'));
+
+    }
+
+
+
 }
