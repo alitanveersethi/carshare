@@ -89,7 +89,7 @@
                                         <li>
                                             <button   style="background-color:#63a599 ; color: #273a4d"  href="#">
                                                 
-                                                <a style="background-color:#63a599 ; color: #273a4d"  href="postview&<?php echo $rd->id ?>" class="btn  btn-success btn-xs"><b>READ MORE</b></a>
+                                                <a style="background-color:#63a599 ; color: #273a4d"  href="map&<?php echo $rd->id ?>" class="btn  btn-success btn-xs"><b>READ MORE</b></a>
                                             </button>
                                         </li>
 
