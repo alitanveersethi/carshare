@@ -51,7 +51,7 @@
                 
             <table id="mytable" class="table table-bordred"  >
                    
-                   <thead style="background-color:#404242; color: white"  >
+                   <thead style="background-color:#273a4d  ; color:#63a599   "  >
                    
                    
                    <th><B>DRIVER NAME</B> </th>
@@ -81,8 +81,8 @@
     <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
-    <td><a href='addquery&<?php echo $rd->id ?>'><b>ADD COMMENT</b></a></td>
-    <td><a href='viewquery&<?php echo $rd->id ?>'><b>VIEW COMMENT</b></a></td>
+    <td><a style=" color:#273a4d" href='addquery&<?php echo $rd->id ?>'><b>ADD COMMENT</b></a></td>
+    <td><a style=" color:#273a4d" href='viewquery&<?php echo $rd->id ?>'><b>VIEW COMMENT</b></a></td>
     </tr>
     
 

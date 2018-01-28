@@ -67,7 +67,7 @@
                                         <li class="ride-date">
                                             <a href="#" class="tooltip-link" data-original-title="Date" data-toggle="tooltip">
                                                 <i style="text-transform: uppercase" class="fa fa-calendar"></i><b>
-                                                {{$rd->date}} at {{$rd->time}}
+                                                {{$rd->date}} AT {{$rd->time}}
                                             </a></b>
                                         </li><!-- end .ride-date -->
 
@@ -87,9 +87,9 @@
 
 
                                         <li>
-                                            <button href="#">
+                                            <button   style="background-color:#63a599 ; color: #273a4d"  href="#">
                                                 
-                                                <a href="postview&<?php echo $rd->id ?>" class="btn  btn-success btn-xs"><b>READ MORE</b></a>
+                                                <a style="background-color:#63a599 ; color: #273a4d"  href="postview&<?php echo $rd->id ?>" class="btn  btn-success btn-xs"><b>READ MORE</b></a>
                                             </button>
                                         </li>
 

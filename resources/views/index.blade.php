@@ -26,7 +26,7 @@
 
 
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini" style="background-image: url('img/road_lighting_night_119175_1280x720.jpg');" >
 <!-- Site wrapper -->
 
 <div class="wrapper">

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -34,6 +34,10 @@
 
   
   <div class="content-wrapper">
+  <section class="content-header">
+    <div class="panel-heading" style="background-color:#273a4d; color: #63a599" ><b><h3>EDIT RIDE</h3></b></div>
+     
+    </section>
 
 
     
@@ -42,9 +46,8 @@
    
     <section class="content">
 
-     <div class="panel " style="background-color:#404242; color: white"   >
-                <div class="panel-heading"><b><h3>EDIT RIDE</h3></b></div>
-                <div class="panel-body" style="background-color:#404242; color: white">
+    
+                <div class="panel-body">
         <form role="form" method="post" action="update&<?php echo $ride->id ?>">
         {{ csrf_field() }}
              
@@ -79,7 +82,7 @@
             
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary" ><B>SUBMIT</B></button>
+                <button style="background-color:#273a4d; color: #63a599" type="submit" class="btn btn-primary" ><B>SUBMIT</B></button>
               </div>
             </form>
             </div>

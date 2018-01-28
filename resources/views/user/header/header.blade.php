@@ -5,25 +5,25 @@
             ]); ?>
         </script>
 
-            <div class="top-menu">
+            <div class="top-menu" style="background-color: #273a4d"  >
 
                 <section class="container">
                     <div class="row">
 
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="user-log">
+                            <div class="user-log" style="background-color: #63a599"  >
 @if (Auth::guest())
-                                <a data-toggle="modal" href="{{url('login')}}">
-                                    Log in
-                                </a> 
-                                <a data-toggle="modal" href="{{url('register')}}">
-                                    Sign up
+                                <a data-toggle="modal" href="{{url('login')}}" style="color: #273a4d"  ><b>
+                                    LOGIN
+                                </a> </b>
+                                <a data-toggle="modal" href="{{url('register')}}  " style="color: #273a4d"   ><b>SIGN UP</b>
+                                    
                                 </a>
                                 @else
                                 <a data-toggle="modal" href="{{ url('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                              <b style="text-transform: uppercase;" > WELCOME {{Auth::user()->name}}</b>
+                              <b style="text-transform: uppercase;" > LOGIN:{{Auth::user()->name}}</b>
                                 </a>
                                  <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
@@ -41,9 +41,9 @@
 
             <div class="main-baner" style="height: auto;" >
 
-                <div class=" background parallax clearfix" style="background-image:url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');" data-img-width="1024" data-img-height="800"   >
+                <div class=" background parallax clearfix" style="background-image: url('img/road_lighting_night_119175_1280x720.jpg');" data-img-width="1024" data-img-height="800"   >
                 <div class="logo">
-                                                <b><h1 style="color: black" >CAR SHARE</h1></b>
+                                                <b><h1 style="color:#63a599" >CAR SHARE</h1></b>
                                             </div>
 
                   
@@ -56,9 +56,9 @@
                                         
 
                                         <div class="col-md-12 col-sm-6 col-xs-12"   >
-                                           <div class="search-content" style="background-color:#404242;">
+                                           <div class="search-content" style="background-color:#273a4d;">
 
-                                            <form style="background-color:#404242; " action="{{url('search')}}" method='post 'novalidate autocomplete="on" class="idealforms searchtours"
+                                            <form style="background-color:#273a4d; " action="{{url('search')}}" method='post 'novalidate autocomplete="on" class="idealforms searchtours"
 
                                               > 
                                               {{ csrf_field() }}
@@ -82,7 +82,7 @@
                                                     <div class="col-md-2 col-sm-3 col-xs-12">
 
                                                         <div class="field buttons">
-                                                            <button type="submit" class="btn btn-lg green-color">Search</button>
+                                                            <button type="submit" class="btn btn-lg green-color" style="background-color:#63a599;color:#273a4d; " ><b>SEARCH</b></button>
                                                         </div>
 
                                                     </div>

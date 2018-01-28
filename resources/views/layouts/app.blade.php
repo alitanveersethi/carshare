@@ -12,10 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <style>
-        body {background-image: url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');}
-
-    </style>
+   
 
     <!-- Scripts -->
     <script>
@@ -24,9 +21,9 @@
         ]); ?>
     </script>
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-inverse navbar-static-top">
+<body style="background-image: url('img/road_lighting_night_119175_1280x720.jpg');"    >
+    <div id="app"   >
+        <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #273a4d"  >
             <div  class="container">
                 <div class="navbar-header">
 
@@ -34,11 +31,9 @@
                 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/user') }}" >
-                       <b> CAR SHARE </b>
+                       <h4 style="color:#63a599" > <b>CAR SHARE </b> </h4> 
                     </a>
-                    <a class="navbar-brand" href="{{ url('/user') }}" >
-                        <b><q>Looking For A Ride Click Here</q></b>
-                    </a>
+                    
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -51,12 +46,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}"><b>Login</b></a></li>
-                            <li><a href="{{ url('/register') }}"><b> Register</b> </a>   </li>
+                            <li><a href="{{ url('/login') }}" style="color:#63a599 " ><b>LOGIN</b></a></li>
+                            <li><a href="{{ url('/register') }}" style="color:#63a599"><b>REGISTER</b> </a>   </li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:#63a599 "  >
+                                   <b> {{ Auth::user()->name }} </b> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

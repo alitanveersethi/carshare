@@ -51,7 +51,7 @@
                 
               <table id="mytable" class="table table-bordred table-striped">
                    
-                   <thead>
+                   <thead style="background-color:#273a4d; color: #63a599"  >
                    
                    
                    <th>Time</th>

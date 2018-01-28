@@ -52,7 +52,7 @@
                 
               <table id="mytable" class="table table-bordred"  >
                    
-                   <thead style="background-color:#404242; color: white" >
+                   <thead style="background-color:#273a4d; color: #63a599" >
                    
                    
                    <th><B>DRIVER NAME</B> </th>
@@ -82,8 +82,8 @@
     <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
-    <td  ><B><a href='editride&<?php echo $rd->id ?>'>EDIT</a></B></td>
-    <td><B><a href='delete&<?php echo $rd->id ?>'>DELETE</a></B></td>
+    <td  ><B><a style=" color:#273a4d" href='editride&<?php echo $rd->id ?>'>EDIT</a></B></td>
+    <td><B><a style=" color:#273a4d" href='delete&<?php echo $rd->id ?>'>DELETE</a></B></td>
     </tr>
     
 

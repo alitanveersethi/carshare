@@ -37,7 +37,7 @@
   <div class="content-wrapper">
 
     <section class="content-header">
-    <div class="panel-heading"><b><h3>ALL USERS</h3></b></div>
+    <div class="panel-heading" style="background-color:#273a4d; color: #63a599" ><b><h3>ALL USERS</h3></b></div>
       
      
     </section>
@@ -54,7 +54,7 @@
                 
               <table id="mytable" class="table table-bordred" >
                    
-                   <thead  style="background-color:#404242; color: white " >
+                   <thead  style="background-color:#273a4d; color: #63a599" >
                    
                    
                   
@@ -79,7 +79,7 @@
     <td style="text-transform: uppercase"><b>{{$us->cnic}}</b></td>
     <td style="text-transform: uppercase"><b>{{$us->cell_no}}</b></td>
         <td style="text-transform: uppercase"><b>{{$us->role}}</b></td>
-        <td style="text-transform: uppercase"><b><a href="/display/<?php echo $us->id?>" class="btn  btn-primary btn-xs">{{$us->role}}</b></a>
+        <td style="text-transform: uppercase"><b><a style="background-color:#63a599; color:black " href="/display/<?php echo $us->id?>" class="btn  btn-primary btn-xs">{{$us->role}}</b></a>
 
     
 

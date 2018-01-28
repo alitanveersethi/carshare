@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -50,7 +50,7 @@
                 
               <table id="mytable" class="table table-bordred"  >
                    
-                   <thead style="background-color:#404242; color: white"  >
+                   <thead style="background-color:#273a4d; color: #63a599"  >
                    
                    
                    <th><B>DRIVER NAME</B> </th>
@@ -63,12 +63,12 @@
                      <th><B>DATE</B></th>
                      <th><B>TIME</B></th>
                      <th><B>SEATS AVAILAIBLE</B></th>
-                      <th><B>Edit</B></th>
+                      <th><B>EDIT</B></th>
 
-            <th><B>Delete</B></th>
+            <th><B>DELETE</B></th>
                    </thead>
                    @foreach($ride as $rd)
-    <tbody>
+    <tbody style=" ; color:#273a4d"  >
     
     <tr>
     
@@ -80,8 +80,8 @@
     <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
-    <td  ><B><a href='admin_editride&<?php echo $rd->id ?>'>EDIT</a></B></td>
-    <td><B><a href='admin_delete&<?php echo $rd->id ?>'>DELETE</a></B></td>
+    <td  ><B><a style=" color:#273a4d"   href='admin_editride&<?php echo $rd->id ?>'>EDIT</a></B></td>
+    <td><B><a style=" color:#273a4d" href='admin_delete&<?php echo $rd->id ?>'>DELETE</a></B></td>
     </tr>
     
 

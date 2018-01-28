@@ -39,13 +39,13 @@
   <div class="content-wrapper">
     
     <section class="content-header"   >
-       <div class="panel-heading"><b><h3>COMMENTS</h3></b></div>
+       <div class="panel-heading" style="background-color:#273a4d; color: #63a599" ><b><h3>COMMENTS</h3></b></div>
      
     </section>
       @foreach($query as $qu)
 
 
-    <section class="content" style="background-color:#404242; color: white" >
+    <section class="content" style="background-color:##63a599; " >
                 
                 
                 

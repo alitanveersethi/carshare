@@ -37,7 +37,7 @@
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" >
+<div class="content-wrapper" style="background-image: url('img/road_lighting_night_119175_1280x720.jpg');" >
     
     <section class="content-header" >
       

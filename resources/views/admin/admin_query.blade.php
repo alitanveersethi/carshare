@@ -51,7 +51,7 @@
                 
             <table id="mytable" class="table table-bordred"  >
                    
-                   <thead style="background-color:#404242; color: white"  >
+                   <thead style="background-color:#273a4d  ; color:#63a599   "  >
                    
                    
                    <th><B>DRIVER NAME</B> </th>
@@ -64,12 +64,12 @@
                      <th><B>DATE</B></th>
                      <th><B>TIME</B></th>
                      <th><B>SEATS AVAILAIBLE</B></th>
-                      <th><B>Edit</B></th>
+                      <th><B>ADD COMMENT</B></th>
 
-            <th><B>Delete</B></th>
+            <th><B>VIEW COMMENT</B></th>
                    </thead>
                    @foreach($ride as $rd)
-    <tbody>
+    <tbody style="  color:#273a4d" >
     
     <tr>
     
@@ -81,8 +81,8 @@
     <td style="text-transform: uppercase" ><B>{{$rd->date}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->time}}</B></td>
     <td style="text-transform: uppercase" ><B>{{$rd->seats_available}}</B></td>
-    <td><a href='admin_addquery&<?php echo $rd->id ?>'><b>ADD COMMENT</b></a></td>
-    <td><a href='admin_viewquery&<?php echo $rd->id ?>'><b>VIEW COMMENT</b></a></td>
+    <td><a style=" color:#273a4d" href='admin_addquery&<?php echo $rd->id ?>'><b>ADD COMMENT</b></a></td>
+    <td><a style="  color:#273a4d"  href='admin_viewquery&<?php echo $rd->id ?>'><b>VIEW COMMENT</b></a></td>
     </tr>
     
 

@@ -36,16 +36,20 @@
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper"style="background-color:#404242;" >
+  <div class="content-wrapper" >
+  <section class="content-header">
+    <div class="panel-heading" style="background-color:#273a4d; color: #63a599" ><b><h3>ADD RIDE</h3></b></div>
+     
+    </section>
     
 
 
    
     <section class="main-content">
 
-     <div class="panel " style="background-color:#404242; color: white"   >
+     <div class="panel "    >
                 <div class="panel-heading"><b><h3>CREATE RIDE</h3></b></div>
-                <div class="panel-body" style="background-color:#404242; color: white">
+                <div class="panel-body" >
         <form role="form" method="post" action="{{url('storeride')}}">
         {{ csrf_field() }}
       
@@ -81,7 +85,7 @@
             
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary" ><B>SUBMIT</B></button>
+                <button  style="background-color:#273a4d; color: #63a599"  type="submit" class="btn btn-primary" ><B>SUBMIT</B></button>
               </div>
             </form>
             </div>
