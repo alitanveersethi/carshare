@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SimpleAdminLTE 2 | Blank Page</title>
+    <title>CARSHARE</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -17,9 +17,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <style>
-        body {background-image: url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');}
-    </style>
+   
     <script>
         window.Laravel <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -28,7 +26,7 @@
 
 
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini" style="background-image: url('img/road_lighting_night_119175_1280x720.jpg');" >
 <!-- Site wrapper -->
 
 <div class="wrapper">
@@ -56,6 +54,8 @@
             @elseif(Auth::User()->role=="Admin")
                 @include('admin.header.header')
                 @include('admin.sidebar.sidebar')
+                @elseif(Auth::User()->role=="user" ||  Auth::guest() )
+                <script type="text/javascript"> window.location = "user"; </script>
 
 
             @endif

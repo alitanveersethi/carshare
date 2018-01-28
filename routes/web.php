@@ -44,10 +44,8 @@ Route::get('view_report','query_controller@ViewReport');
 Route::get('search','search@search');
 
 
-Route::get('addquery', function () {
-    return view('superadmin.addquery');
+Route::get('addquery&{id}','query_controller@index');
 
-});
 
 Route::get('viewride','createride@show');
 Route::post('storeride','createride@store');
@@ -57,7 +55,7 @@ Route::get('delete&{id}','createride@delete');
 Route::get('viewuser','UserController@show');
 
 Route::get('/home', 'HomeController@index');
-Route::get('viewquery','query_controller@show');
+Route::get('viewquery&{id}','query_controller@show');
 Route::post('storequery','query_controller@store');
 Route::get('admin_viewride','admin_createride@show');
 Route::post('admin_storeride','admin_createride@store');
@@ -68,7 +66,7 @@ Route::get('admin_addride', function () {
     return view('admin.admin_addride');
 });
 Route::get('admin_addquery&{id}', 'admin_querycontroller@index');
-
+Route::get('query','query_controller@create');
 Route::get('admin_query','admin_querycontroller@create');
 Route::get('admin_editride&{id}','admin_createride@edit');
 Route::post('admin_update&{id}','admin_createride@update');

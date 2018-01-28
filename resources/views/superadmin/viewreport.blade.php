@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="superAdmin")
 <html>
 <head>
   <meta charset="utf-8">
@@ -17,9 +18,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <style>
-        body {background-image: url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');}
-    </style>
+   
 
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
@@ -52,7 +51,7 @@
                 
               <table id="mytable" class="table table-bordred table-striped">
                    
-                   <thead>
+                   <thead style="background-color:#273a4d; color: #63a599"  >
                    
                    
                    <th>Time</th>
@@ -110,3 +109,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

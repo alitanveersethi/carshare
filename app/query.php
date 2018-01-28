@@ -14,7 +14,7 @@ class query extends Model
     protected $fillable = [
 
         'sender_email',
-        'sender_subject',
+
         'sender_name',
         'message',
         'user_id',

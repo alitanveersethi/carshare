@@ -39,7 +39,7 @@ class createride extends Controller
     public function store(Request $request)
     {
         $addride=new addride();
-
+        $addride->title=Auth::User()->name;
         $addride->source_city=$request->source_city;
         $addride->destination_city=$request->destination_city;
         $addride->seats_available=$request->seats_available;
@@ -111,7 +111,7 @@ else{
         $ride->fare=$request->fare;
         $ride->car_no=$request->car_no;
         $ride->date=$request->date;
-        $ride->user_id=$request->user_id;
+        $ride->user_id=Auth::User()->id;
 
 
         $ride->save();

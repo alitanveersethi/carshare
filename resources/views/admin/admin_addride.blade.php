@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+@if(Auth::User()->role=="Admin")
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CARSHARE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -33,35 +34,44 @@
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+ <div class="content-wrapper" >
     
-    <section class="content-header">
-        <form role="form" method="post" action="{{url('admin_storeride')}}">
+
+<section class="content-header">
+    <div class="panel-heading" style="background-color:#273a4d; color: #63a599" ><b><h3>ADD RIDE</h3></b></div>
+     
+    </section>
+
+   
+    <section class="main-content">
+
+    
+                <div class="panel-body" >
+        <form role="form" method="post" action="{{url('admin_storeride')}}"  >
         {{ csrf_field() }}
-              <div class="box-body">
-                
+             
                 <div class="form-group">
-                  <label >from</label>
+                  <label ><b>FROM</b></label>
                   <input type="text" class="form-control" id="source_city" name="source_city" placeholder="" required>
                 </div>
                 <div class="form-group">
-                  <label >to</label>
-                  <input type="text" id="destination_city" name="destination_city"    class="form-control">
+                  <label ><B>TO</B></label>
+                  <input type="text" id="destination_city" name="destination_city"    class="form-control" required>
                   </div>
                      <div class="form-group">
-                  <label >seats availaible</label>
-                  <input type="number" id="seats_available" name="seats_available" class="form-control"  >
+                  <label ><B>SEATS AVAILAIBLE</B></label>
+                  <input type="number" id="seats_available" name="seats_available" class="form-control" required >
                   </div>
-                   <div class="form-group">
-                  <label >fare</label>
+                   <div class="form-group" required >
+                  <label ><B>FARE</B></label>
                   <input type="number" id="fare" name="fare" class="form-control"  >
                   </div>
-                    <div class="form-group">
-                  <label >car licensed number</label>
+                    <div class="form-group" required >
+                  <label ><B>CAR LICENSE NUMBER</B></label>
                   <input type="text" id="car_no" name="car_no" class="form-control"  >
                   </div>
-                   <div class="form-group">
-                  <label >Date And Time</label>
+                   <div class="form-group" required  >
+                  <label ><b> DATE AND TIME</b></label>
                   <input type="date" id="date" name="date" class="form-control"  >
                   <input type="time" id="time" name="time" class="form-control"  ></div>
                   
@@ -71,16 +81,11 @@
             
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary" >Submit</button>
+                <button type="submit" class="btn btn-default" style="background-color:#273a4d; color: #63a599" ><B>SUBMIT</B></button>
               </div>
             </form>
-     
-    </section>
-
-   
-    <section class="content">
-
-     
+            </div>
+            </div>
 
   
 </section>
@@ -103,3 +108,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

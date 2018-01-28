@@ -1,4 +1,7 @@
+ 
 <!DOCTYPE html>
+@if(Auth::User()->role=="Admin")
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -20,7 +23,7 @@
 
 
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini"  >
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -34,7 +37,7 @@
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-image: url('img/road_lighting_night_119175_1280x720.jpg');" >
     
     <section class="content-header">
       
@@ -66,3 +69,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

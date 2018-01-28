@@ -16,7 +16,7 @@ class query extends Migration
         Schema::create('query', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sender_email');
-            $table->string('sender_subject');
+
             $table->string('sender_name');
             $table->longText('message');
 

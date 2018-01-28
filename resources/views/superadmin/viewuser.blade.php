@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+@if(Auth::User()->role=="superAdmin")
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SimpleAdminLTE 2 | Blank Page</title>
+  <title>CarShare</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -12,17 +13,14 @@
   <link rel="stylesheet" href="fonts/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="fonts/ionicons.min.css">
-  <!-- Theme style -->
+  
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <style>
-        body {background-image: url('img/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg');}
-    </style>
-
+ 
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -37,51 +35,55 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     <section class="content-header">
+    <div class="panel-heading" style="background-color:#273a4d; color: #63a599" ><b><h3>ALL USERS</h3></b></div>
       
      
     </section>
+
+    
+    
 
    
     <section class="content">
 
                              
-                                 <div class="table-responsive">
+          <div class="table-responsive">
 
                 
-              <table id="mytable" class="table table-bordred table-striped">
+              <table id="mytable" class="table table-bordred" >
                    
-                   <thead>
+                   <thead  style="background-color:#273a4d; color: #63a599" >
                    
                    
-                   <th>id</th>
-                    <th>name</th>
-                     <th>email</th>
-                     <th>cnic</th>
-                     <th>contact no.</th>
-                   <th>role</th>
-                   <th>Edit role</th>
+                  
+                    <th><b>NAME</b></th>
+                     <th><b>EMAIL</b></th>
+                     <th><b>IDENTITY NO.</b></th>
+                     <th><b>CONTACT NO.</b></th>
+                   <th><b>ROLE</b></th>
+                   <th><b>ASSIGN ROLE</b></th>
                      
 
-            <th>Delete</th>
+            
                    </thead>
                    @foreach($users as $us)
     <tbody>
     
     <tr>
 
-    <td>{{$us->id}}</td>
-    <td>{{$us->name}}</td>
-    <td>{{$us->email}}</td>
-    <td>{{$us->cnic}}</td>
-    <td>{{$us->cell_no}}</td>
-        <td>{{$us->role}}</td>
-        <td><a href="/display/<?php echo $us->id?>" class="btn  btn-primary btn-xs">{{$us->role}}</a>
+   
+    <td style="text-transform: uppercase"><b>{{$us->name}}</b></td>
+    <td style="text-transform: uppercase"><b>{{$us->email}}</b></td>
+    <td style="text-transform: uppercase"><b>{{$us->cnic}}</b></td>
+    <td style="text-transform: uppercase"><b>{{$us->cell_no}}</b></td>
+        <td style="text-transform: uppercase"><b>{{$us->role}}</b></td>
+        <td style="text-transform: uppercase"><b><a style="background-color:#63a599; color:black " href="/display/<?php echo $us->id?>" class="btn  btn-primary btn-xs">{{$us->role}}</b></a>
 
     
 
-    <td><a href=''>delete</a></td>
+ 
     </tr>
     
 
@@ -113,3 +115,8 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+@else
+<script type="text/javascript"> window.location = "login"; </script>
+
+
+@endif

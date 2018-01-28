@@ -6,7 +6,7 @@
 
         <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>My ride - Single article</title>
+        <title>CARSHARE</title>
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,86 +45,54 @@
 
     <body>
 
-        <header class="header">
+      <header class="header">
+<script>
+            window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
 
-            <div class="top-menu">
+            <div class="top-menu" style="background-color: #273a4d"  >
 
                 <section class="container">
                     <div class="row">
 
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="user-log">
-
-                                <a data-toggle="modal" data-target="#loginModal">
-                                    Log in
-                                </a> /
-                                <a data-toggle="modal" data-target="#regModal">
-                                    Sign up
+                            <div class="user-log" style="background-color: #63a599"  >
+@if (Auth::guest())
+                                <a data-toggle="modal" href="{{url('login')}}" style="color: #273a4d"  ><b>
+                                    LOGIN
+                                </a> </b>
+                                <a data-toggle="modal" href="{{url('register')}}  " style="color: #273a4d"   ><b>SIGN UP</b>
+                                    
                                 </a>
+                                @else
+                                <a data-toggle="modal" href="{{ url('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                              <b style="text-transform: uppercase;" > LOGIN:{{Auth::user()->name}}</b>
+                                </a>
+                                 <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
 
                             </div><!-- end .user-log -->
                         </div><!-- end .col-sm-4 -->
 
                         
+
                     </div><!-- end .row -->
-                </section><!-- end .container -->
+          @endif      </section><!-- end .container -->
 
             </div><!-- end .top-menu -->
 
-            <div class="main-baner">
+           
 
-                
+                  
 
-                    <div class="main-parallax-content">
 
-                        <div class="second-parallax-content">
+                            <section class="container"  >
 
-                            <section class="container">
-
-                                <div class="row">
-
-                                    <div class="main-header-container clearfix">
-
-                                        <div class="col-md-4 col-sm-12 col-xs-12">
-
-                                            <div class="logo">
-                                                <h1>CAR SHARE</h1>
-                                            </div><!-- end .logo -->
-
-                                        </div><!-- end .col-sm-4 -->
-
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
-
-                                            <nav id="nav" class="main-navigation">
-
-                                                <ul class="navigation">
-                                                    <li>
-                                                        <a href="{{url('user')}}">Home</a>
-                                                    </li>
-                                                   
-                                                   
-                                                 
-                                                </ul>
-
-                                            </nav><!-- end .main-navigation -->
-
-                                        </div><!-- end .col-md-8 -->
-
-                                    </div><!-- end .main-header-container -->
-
-                                </div><!-- end .row -->
-
-                            </section><!-- end .container -->
-
-                        </div><!-- end .second-parallax-content -->
-
-                    </div><!-- end .main-parallax-content -->
-
-                </div><!-- end .background .parallax -->
-
-            </div><!-- end .main-baner -->
-
-        </header><!-- end .header -->
 
         <section class="main-content">
 
@@ -133,9 +101,9 @@
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
 
-                        <div class="page-sub-title textcenter">
-                            <h2>TRIP DETAILS</h2>
-                            <div class="line"></div>
+                        <div class="page-sub-title ">
+                            <h2 style="background-color:#273a4d; color: #63a599" ><b>TRIP DETAILS<B></h2>
+                            
                         </div><!-- end .page-sub-title -->
 
                     </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
@@ -152,58 +120,67 @@
                                 
                                     
                                     <div class="ride-content">
-                                        <h3><B><a href="#" style="text-transform: uppercase" >FROM {{$ride->source_city}} TO  {{$ride->destination_city}}</a></h3>RIDE BY <a style="text-transform: uppercase" href="#">{{$ride->title}}</B></a>
+                                        <h2  ><B><a style="color: #273a4d;text-transform: uppercase" >{{$ride->title}} IS DRIVING FROM {{$ride->source_city}} TO  {{$ride->destination_city}}</a></h2> </B></a>
                                     </div>
                                     <div>
 
-                                    <ul class="ride-meta">
+                                    <ul class="ride-content">
 
-                                        <li class="ride-date">
-                                            <a href="#" class="tooltip-link" data-original-title="Date" data-toggle="tooltip">
-                                                <i class="fa fa-calendar"></i>
-                                                <B style="text-transform: uppercase" >TIME : {{$ride->date}} at {{$ride->time}}</B>
+                                       
+                                            <a style="color: #273a4d;text-transform: uppercase" >
+                                            <h3>
+                                               
+                                                <B style="text-transform: uppercase" >TIME:{{$ride->time}}<br>ON: {{$ride->date}}   </B></h3>
                                             </a>
-                                        </li><!-- end .ride-date -->
+                                        </li>
+                                        <br>
 
-                                        <li class="ride-people">
-                                            <a href="#" class="tooltip-link" data-original-title="Number of seats" data-toggle="tooltip">
-                                                <i class="fa fa-user"></i><B style="text-transform: uppercase" >
-                                               SEATS : {{$ride->seats_available}}
-                                           </B>
+                                        <li class="ride-content">
+                                            <a style="color: #273a4d;text-transform: uppercase" >
+                                                <h3><B style="text-transform: uppercase" >
+                                               {{$ride->seats_available}} SPARE SEATS 
+                                           </h3> </B>
                                      </a>
                                         </li>
+                                        <br>
 
-                                         <li class="ride-people">
-                                            <a href="#" class="tooltip-link" data-original-title="fare" >
-                                                <i ></i>
-                                                <B style="text-transform: uppercase" > FARE : Rs {{$ride->fare}} </B>
+                                         <li  class="ride-content">
+                                            <a style="color: #273a4d;text-transform: uppercase" >
+                                                <h3>
+                                                <B style="text-transform: uppercase" >  {{$ride->fare}} rs CONTRIBUTION </B>
+                                            </h3>
                                             </a>
+
                                         </li>
+                                        <br>
                                          <li class="ride-content">
-                                            <a href="#"  data-original-title="fare" >
-                                                <i ></i>
+                                            <a style="color: #273a4d;text-transform: uppercase" >
+                                            <h3>                                                
                                                 <B style="text-transform: uppercase"  >  DRIVER EMAIL: {{$ride->User->email}} </B>
-                                            </a>
+                                             </h3>
+ </a>
                                         </li>
+                                        <br>
                                          <li class="ride-content">
-                                            <a href="#" class="tooltip-link" data-original-title="identity card number" >
-                                                <i ></i>
-                                                <B style="text-transform: uppercase"  >  DRIVER CNIC: {{$ride->User->cnic}} </B>
+                                            <a  >
+ 
+                                                <h3>
+                                                <B style="text-transform: uppercase"> DRIVER CNIC: {{$ride->User->cnic}} </B></h3>
                                             </a>
                                         </li>
+                                        <br>
                                           <li class="ride-content">
-                                            <a href="#" class="tooltip-link" data-original-title="cell number" >
-                                                <i ></i>
-                                                <B style="text-transform: uppercase"  >  CONTACT: {{$ride->User->cell_no}} </B>
+                                            <a style="color: #273a4d;text-transform: uppercase" >
+                                               <h3>
+                                                <B style="text-transform: uppercase"  >  DRIVER CONTACT: {{$ride->User->cell_no}} </B>
+                                                </h3>
                                             </a>
                                         </li>
 
 
-                                        <li>
-                                        </li>
+                                       
 
                                         </ul>
-                                        
 
 
                                 </article><!-- end .article -->
@@ -212,15 +189,25 @@
 
 
                             
-
+                          
                             </div>
+                            <br>
+                            <br>
+   <div class="clearfix"></div>
+
 
                             <div class="comments-area" id="comments">
+                             
 
-                                <!-- Begin Comments -->
+                        <div class="page-sub-title ">
+                            <h2 style="background-color:#273a4d; color: #63a599"  ><b>COMMENTS<B></h2>
+                            <div class=""></div>
+
+                    </div>
+
+      
+
                                 
-
-                                <h3>Comments</h3>
                                 @foreach($query as $qu)
 
                                 <ol class="commentslist">
@@ -259,9 +246,16 @@
                                 <div id="respond">
 
                                     <div class="clearfix"></div>
+                                     <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                    <h3 id="reply-title">Leave a Reply</h3>
+                        <div class="page-sub-title ">
+                            <h2 style="background-color:#273a4d; color: #63a599" ><b>ADD COMMENT<B></h2>
+                            
+                        </div><!-- end .page-sub-title -->
 
+                    </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
+
+                                     
                                     <form id="comment-form" action="{{url('user_storequery')}}" novalidate autocomplete="off" class="idealforms addcomment" method="POST">
                                     {{ csrf_field() }}
 
@@ -272,17 +266,13 @@
 
                                        
 
-                                        <div class="field">
-                                            <input  id="sender_subject" name="sender_subject" type="text"  placeholder="subject" >
-                                            <span class="error"></span>
-                                        </div>
 
                                         <div class="full-fild">
                                             <textarea name="message" id="message" cols="5" placeholder="Message" rows="4"></textarea>
                                         </div>
 
                                         <div class="field buttons">
-                                            <button type="submit" class="btn btn-lg blue-color">Submit</button>
+                                            <button style="background-color:#63a599 ; color:#273a4d " type="submit" class="btn btn-lg blue-color">Submit</button>
                                         </div>
 
                                         <span id="invalid"></span>
