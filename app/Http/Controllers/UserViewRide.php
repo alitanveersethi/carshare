@@ -41,25 +41,7 @@ class UserViewRide extends Controller
 
 
     }
-    public function postview($id)
-    {
-        $ride=addride::find($id);
-        $query['query']=DB::table('query')->where('post_id',$id)->get();
-
-        if (count($ride)>0){
-
-            return view('user.postview',['ride'=>$ride],$query);
-        }
-        else{
-
-
-            return view('user.postview');
-
-
-        }
-
-
-    }
+   
     public function store(Request $request  )
 
     {
@@ -82,20 +64,32 @@ class UserViewRide extends Controller
     }
     public function delete($id)
     {
-        DB::table('query')->where('user_id', Auth::id())->delete();
+        DB::table('query')->where('id', $id)->delete();
         return redirect()->back();
 
     }
 
     public function map($id)
     {
-        $ride=addride::find($id);
-        $source=$ride->source_city;
-        $dest=$ride->destination_city;
-        return view('map',compact('source','dest'));
+        $ride = addride::find($id);
 
+        $source = $ride->source_city;
+        $dest = $ride->destination_city;
+        $query['query'] = DB::table('query')->where('post_id', $id)->get();
+
+
+        if (count($ride) > 0) {
+
+            return view('user.map',compact('source', 'dest','ride'),$query );
+
+        } else {
+
+
+            return view('user.map');
+
+
+        }
     }
-
 
 
 }

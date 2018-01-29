@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel " style="background-color:#63a599; color: white"   >
-                <div class="panel-heading" style="color:#273a4d " ><b>LOGIN</b></div>
+                <div class="panel-heading" style="color:#273a4d " ><b>LOG IN</b></div>
                 <div class="panel-body" style="background-color:#273a4d; color: white">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -42,7 +42,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> REMEBER ME
                                     </label>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-default" style="background-color:#63a599;color: #273a4d "  ><b>
-                                    LOGIN</b>
+                                    LOG IN</b>
                                 </button>
 
                                 

@@ -46,22 +46,21 @@
 
     <body>
     @include('user.header.header')
-    <section class="main-content">
+    
+                            <section class="container"  >
+
+
+        <section class="main-content">
+
 
             <div class="container">
                 <div class="row">
 
-                    <div class="page-content">
-
-                        
-                        
-
-            <div class="last-rides">
-
+   
                            <div class="col-md-12 col-sm-12 col-xs-12">
 
                         <div class="page-sub-title textcenter">
-                            <h2>search result</h2>
+                            <h2  style="background-color:#273a4d; color: #63a599"  ><b>SEARCH RESULTS</b></h2>
                             <div class="line"></div>
                         </div><!-- end .page-sub-title -->
 
@@ -77,38 +76,38 @@
                                 <article class="ride-box clearfix">
 
                                     <div class="ride-content">
-                                        <h3><a href="#">{{$r->source_city}} to {{$r->destination_city}}</a></h3>ride by <a href="#">{{Auth::user()->name}}</a>
+                                        <h3><b><a style="text-transform: uppercase" href="#">{{$r->source_city}} to {{$r->destination_city}}</a></b></h3><b> RIDE BY   <a style="text-transform: uppercase" href="#"><h3>{{$r->title}}</h3></a></b>
                                     </div>
 
                                     <ul class="ride-meta">
 
                                         <li class="ride-date">
                                             <a href="#" class="tooltip-link" data-original-title="Date" data-toggle="tooltip">
-                                                <i class="fa fa-calendar"></i>
-                                                {{$r->date}} at {{$r->time}}
-                                            </a>
+                                                <i style="text-transform: uppercase" class="fa fa-calendar"></i><b>
+                                                {{$r->date}} AT {{$r->time}}
+                                            </a></b>
                                         </li><!-- end .ride-date -->
 
                                         <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="Number of seats" data-toggle="tooltip">
-                                                <i class="fa fa-user"></i>
-                                                {{$r->seats_available}}
+                                                <i style="text-transform: uppercase" class="fa fa-user"></i><b>
+                                                {{$r->seats_available}}</b>
                                             </a>
                                         </li>
 
                                          <li class="ride-people">
                                             <a href="#" class="tooltip-link" data-original-title="fare" >
-                                                <i ></i>
-                                                  Rs{{$r->fare}}
+                                                <i style="text-transform: uppercase" ><b>Rs{{$r->fare}}</b></i>
+                                                  
                                             </a>
                                         </li>
 
 
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-file"></i>
-                                                Read more
-                                            </a>
+                                            <button   style="background-color:#63a599 ; color: #273a4d"  href="#">
+                                                
+                                                <a style="background-color:#63a599 ; color: #273a4d"  href="map&<?php echo $r->id ?>" class="btn  btn-success btn-xs"><b>READ MORE</b></a>
+                                            </button>
                                         </li>
 
                                     </ul><!-- end .ride-meta -->
@@ -117,7 +116,7 @@
                                 @endforeach
 
                               
-                                <div class="clearfix"></div>
+                            
 
                                
 

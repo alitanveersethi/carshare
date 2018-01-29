@@ -55,7 +55,7 @@
                 @include('admin.header.header')
                 @include('admin.sidebar.sidebar')
                 @elseif(Auth::User()->role=="user" ||  Auth::guest() )
-                <script type="text/javascript"> window.location = "user"; </script>
+                <script type="text/javascript"> window.location = "/"; </script>
 
 
             @endif

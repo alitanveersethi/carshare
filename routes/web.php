@@ -11,16 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    if(Auth::check()){
-        if(Auth::user()->isPending() || Auth::user()->isDisabled()) {
-            Auth::logout();
-            return redirect('auth/login')->with('info', 'Insert message here');
-        }
-        return view('welcome');
-    }
-    return redirect('login');
-});
+
 Route::get('display/{id}', 'UserController@userRole');
 
 
@@ -32,7 +23,7 @@ Route::get('superadmin', function () {
         return view('admin.layout');
 
 });
-Route::get('user','UserViewRide@showHome');
+Route::get('/','UserViewRide@showHome');
 Route::get('user_viewride','UserViewRide@show');
 Route::get('map&{id}','UserViewRide@map');
 Route::get('addride', function () {

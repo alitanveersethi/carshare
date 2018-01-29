@@ -25,8 +25,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a  style="background-color:#273a4d;; color:#63a599 "  href="{{ url('/login') }}">Login</a></li>
-                    <li><a style="background-color:#273a4d;; color:#63a599 "  href="{{ url('/register') }}">Register</a></li>
+                    <li><a  style="background-color:#273a4d;; color:#63a599 "  href="{{ url('/login') }}">LOG IN</a></li>
+                    <li><a style="background-color:#273a4d;; color:#63a599 "  href="{{ url('/register') }}">SIGN UP</a></li>
                 @else
                     <li class="dropdown">
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"style="background-color:#273a4d; color: #63a599; text-transform: uppercase; "  ><b> 
