@@ -1,4 +1,5 @@
 <?php
+use App\Notifications\Query;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,10 @@ Route::get('superadmin', function () {
 });
 
     Route::get('admin', function () {
-        return view('admin.layout');
+    return view('admin.layouts');
+
+
+
 
 });
 Route::get('/','UserViewRide@showHome');

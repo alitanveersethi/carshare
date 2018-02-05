@@ -3,7 +3,7 @@
 
 </style>
     <!-- Logo -->
-    <a href="index2.html" class="logo" style="background-color:#273a4d;; color:#63a599 " >
+    <a href="{{url("/")}}" class="logo" style="background-color:#273a4d;; color:#63a599 " >
       <!-- mini logo for sidebar mini 50x50 pixels -->
       
       <!-- logo for regular state and mobile devices -->

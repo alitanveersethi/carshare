@@ -250,9 +250,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                                 
                                 @foreach($query as $qu)
                                   <div class="col-md-12 col-sm-12 col-xs-12"   >
-                                  <div class="page-content textcenter  ">
+                                  <div class="page-content  ">
 
-                                <ol class="commentslist textcenter" style="color: white;"  >
+                                <ol class="commentslist" style="color: white;"  >
 
                                     <li id="comment-1">
 
@@ -298,10 +298,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                             <h2  style="background-color:#273a4d; color: #63a599"  ><b>ADD COMMENTS</b></h2>
                             <div class="line"   ></div>
                         </div><!-- end .page-sub-title -->
+     @if(Auth::guest())
 
+<h2><B>LOG IN OR SIGN UP  TO ADD COMMENTS</B></h2>
                     </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
+                      @else
                     <div class="col-md-12 col-sm-12 col-xs-12">
                      <div class="page-sub-title textcenter">
+                    
 
                                      
                                     <form id="comment-form" action="{{url('user_storequery')}}" novalidate autocomplete="off" class="idealforms addcomment" method="POST">
@@ -326,6 +330,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                                         <span id="invalid"></span>
 
                                     </form>
+                                  
+                                    
+                                    @endif
 
                                 </div><!-- #respond -->
 
@@ -349,14 +356,23 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
         <footer id="footer">
 
-            <div class="footer-copyright">
+             <div class="footer-copyright">
 
                 <div class="container">
                     <div class="row">
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                       have a save ride
+                        <a href='{{url("")}}'  >    <h2 style="color:#63a599"  ><B>  www.carshare.com</B> </h2></a>
+                       
                         </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="float: right;" >
+                        <a href='{{url("")}}'  >    <h3 style="color:#63a599"  >  ABOUT US </h3></a>
+                       
+                        </div>
+
+
+
+
 
                     </div><!-- end .row -->
                 </div><!-- end .container -->
