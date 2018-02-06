@@ -5,7 +5,7 @@
             ]); ?>
         </script>
 
-            <div class="top-menu" style="background-color: #273a4d"  >
+             <div class="top-menu" style="background-color: #273a4d"  >
 
                 <section class="container">
                     <div class="row">
@@ -13,29 +13,39 @@
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="user-log" style="background-color: #63a599"  >
 @if (Auth::guest())
-                                <a data-toggle="modal" href="{{url('login')}}" style="color: #273a4d"  ><b>
-                                    LOGIN
+                                <a data-toggle="modal" href="{{url('login')}}" style="color: #273a4d"  ><b><BUTTON style=" background-color:  #273a4d ;color:#63a599 " >
+                                    LOG IN</BUTTON>
                                 </a> </b>
-                                <a data-toggle="modal" href="{{url('register')}}  " style="color: #273a4d"   ><b>SIGN UP</b>
+                                <a data-toggle="modal" href="{{url('register')}}  " style="color: #273a4d"   ><b><BUTTON style=" background-color:  #273a4d ;color:#63a599 " >
+                                    SIGN UP</BUTTON></b>
                                     
                                 </a>
                                 @else
                                 <a data-toggle="modal" href="{{ url('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                              <b style="text-transform: uppercase;" > LOGIN:{{Auth::user()->name}}</b>
+                              <b style="text-transform: uppercase;" > {{Auth::user()->name}} <button style=" background-color:  #273a4d ;color:#63a599 " > SIGN OUT </button> </b>
                                 </a>
                                  <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
-                                </form>
+                               
+                                @endif  </form>
 
                             </div><!-- end .user-log -->
+
                         </div><!-- end .col-sm-4 -->
+                         <a class="navbar-brand" href="{{ url('/user') }}" >
+                       <h3 style="color:#63a599" > <b>HAVE A SAFE RIDE </b> </h3> 
+                    </a>
+                       
+ 
+
+                       
 
                         
 
                     </div><!-- end .row -->
-          @endif      </section><!-- end .container -->
+              </section><!-- end .container -->
 
             </div><!-- end .top-menu -->
 

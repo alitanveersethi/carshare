@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel " style="background-color:#63a599; color: white" >
-                <div class="panel-heading" style="color:#273a4d;"  ><b>REGISTER</b></div>
+                <div class="panel-heading" style="color:#273a4d;"  ><b>SIGN UP</b></div>
                 <div class="panel-body" style="background-color:#273a4d; color:#63a599 "  >
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}

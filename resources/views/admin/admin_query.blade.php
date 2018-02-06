@@ -58,7 +58,7 @@
                     <th><B>FROM</B></th>
                      <th><B>TO</B></th>
                      <th><B>FARE</B></th>
-                     <th><B>CAR NUMBE</B></th>
+                     <th><B>CAR NUMBER</B></th>
 
 
                      <th><B>DATE</B></th>

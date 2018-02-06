@@ -1,51 +1,79 @@
 <!DOCTYPE html>
-<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
-<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
-    <head>
-
-        <!-- Basic Page Needs -->
+<html lang="en">
+ 
+  
+ <head>
+   <link rel="stylesheet" type="text/css" href="{{URL::asset('css/map.css')}}">
+  
         <meta charset="utf-8">
         <title>CARSHARE</title>
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Mobile Specific Metas -->
+       
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Styles -->
 
-        <!-- Bootstrap -->
+       
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- Forms -->
+       
         <link href="css/jquery.idealforms.css" rel="stylesheet">
-        <!-- Select  -->
+       
         <link href="css/jquery.idealselect.css" rel="stylesheet">
-        <!-- Slicknav  -->
+       
         <link href="css/slicknav.css" rel="stylesheet">
-        <!-- Main style -->
+       
         <link href="css/style.css" rel="stylesheet">
 
-        <!-- Modernizr -->
+  
         <script src="js/modernizr.js"></script>
 
-        <!-- Fonts -->
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    
+ </head>
+  
+ 
+<body>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvuxh7HFTWHVMIMCQcyWWHFPtNJ21ig1M&callback=initMap">
+</script>
+ <script>
+function initMap() {
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 7,
+    center: {lat: 30.3753, lng: 69.3451}
+  });
+  directionsDisplay.setMap(map);
 
-    </head>
+  
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+  
+  
+}
 
-    <body>
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  directionsService.route({
+    origin: '{{$source}}',
+    destination: '{{$dest}}',
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+</script>
 
-      <header class="header">
+  
+<header class="header">
+
 <script>
             window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -61,34 +89,45 @@
                             <div class="user-log" style="background-color: #63a599"  >
 @if (Auth::guest())
                                 <a data-toggle="modal" href="{{url('login')}}" style="color: #273a4d"  ><b>
-                                    LOGIN
+                                    <BUTTON style=" background-color:  #273a4d ;color:#63a599 " >
+                                    LOG IN</BUTTON>
                                 </a> </b>
-                                <a data-toggle="modal" href="{{url('register')}}  " style="color: #273a4d"   ><b>SIGN UP</b>
+                                <a data-toggle="modal" href="{{url('register')}}  " style="color: #273a4d"   ><b><BUTTON style=" background-color:  #273a4d ;color:#63a599 " >
+                                    SIGN UP</BUTTON></b>
                                     
                                 </a>
                                 @else
                                 <a data-toggle="modal" href="{{ url('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                              <b style="text-transform: uppercase;" > LOGIN:{{Auth::user()->name}}</b>
+                              <b style="text-transform: uppercase;" > {{Auth::user()->name}} <button style=" background-color:  #273a4d ;color:#63a599 " > SIGN OUT </button> </b>
                                 </a>
                                  <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
+                                  @endif 
 
                             </div><!-- end .user-log -->
                         </div><!-- end .col-sm-4 -->
 
+                        <a class="navbar-brand" href="{{ url('/user') }}" >
+                       <h3 style="color:#63a599" > <b>CAR SHARE </b> </h3> 
+                    </a>
+
+
                         
 
                     </div><!-- end .row -->
-          @endif      </section><!-- end .container -->
+             </section><!-- end .container -->
 
             </div><!-- end .top-menu -->
 
-           
+</header>
 
-                  
+
+<div id="map"></div>
+<!-- Replace the value of the key parameter with your own API key. -->
+
 
 
                             <section class="container"  >
@@ -96,21 +135,26 @@
 
         <section class="main-content">
 
+
             <div class="container">
                 <div class="row">
 
-                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-                        <div class="page-sub-title ">
-                            <h2 style="background-color:#273a4d; color: #63a599" ><b>TRIP DETAILS<B></h2>
-                            
+                
+           
+
+                     <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="page-sub-title textcenter">
+                            <h2  style="background-color:#273a4d; color: #63a599"  ><b>RIDE DEAILS</b></h2>
+                            <div class="line"   ></div>
                         </div><!-- end .page-sub-title -->
 
                     </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
 
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12"   >
 
-                        <div class="page-content">
+                        <div class="page-content textcenter  ">
 
                             <div class="articles">
 
@@ -191,46 +235,45 @@
                             
                           
                             </div>
-                            <br>
-                            <br>
+                            
    <div class="clearfix"></div>
+ <div class="col-md-12 col-sm-12 col-xs-12">
 
-
-                            <div class="comments-area" id="comments">
-                             
-
-                        <div class="page-sub-title ">
-                            <h2 style="background-color:#273a4d; color: #63a599"  ><b>COMMENTS<B></h2>
-                            <div class=""></div>
-
-                    </div>
+                             <div class="page-sub-title textcenter">
+                            <h2  style="background-color:#273a4d; color: #63a599"  ><b>COMMENTS</b></h2>
+                            <div class="line"   ></div>
+                        </div><!-- end .page-sub-title -->
+                        </div>
 
       
 
                                 
                                 @foreach($query as $qu)
+                                  <div class="col-md-12 col-sm-12 col-xs-12"   >
+                                  <div class="page-content  ">
 
-                                <ol class="commentslist">
+                                <ol class="commentslist" style="color: white;"  >
 
                                     <li id="comment-1">
 
-                                        <article class="comment even thread-even depth-1 clearfix">
+                                        <article class="comment even thread-even depth-3 clearfix">
 
-                                            <header>
+                                            <header   >
 
                                                 <div class="comment-user-name">
-                                                    <a style="text-transform: uppercase;"  >{{$qu->sender_name}}</a>
+                                                    <a style="text-transform: uppercase;color:#273a4d "  ><h4><b>{{$qu->sender_name}}</b></h4></a>
                                                 </div>
 
-                                                <span style="text-transform: uppercase;">Posted on {{$qu->created_at}}</span>
+
+                                                <span    ><h6 style="text-transform: uppercase; color:#63a599;  " ><b>Posted on {{$qu->created_at}}</b><h6></h4></span>
 
 
                                             </header>
 
 
-                                            <p>{{$qu->message}} </p>
+                                            <p style="text-transform: uppercase;color:#273a4d "  ><h5><b><blockquote>{{$qu->message}}</blockquote></b></h5> </p>
 @if($qu->user_id==Auth::id())
-                                            <span><a href="user_deleteq&<?php echo $qu->id ?>">DELETE </a>   </span>
+                                            <span   ><a   href="user_deleteq&<?php echo $qu->id ?> "> <h6><b> DELETE </b></h6> </a>   </span>
                                             @endif
                                         </article>
                                         @endforeach
@@ -238,7 +281,10 @@
                                                                             </li>
 
                                 </ol><!-- end .commentslist -->
-
+                                </div>
+</div>
+</div>
+</div>
                             
 
                                 <div class="clearfix"></div>
@@ -248,12 +294,18 @@
                                     <div class="clearfix"></div>
                                      <div class="col-md-12 col-sm-12 col-xs-12">
 
-                        <div class="page-sub-title ">
-                            <h2 style="background-color:#273a4d; color: #63a599" ><b>ADD COMMENT<B></h2>
-                            
+                          <div class="page-sub-title textcenter">
+                            <h2  style="background-color:#273a4d; color: #63a599"  ><b>ADD COMMENTS</b></h2>
+                            <div class="line"   ></div>
                         </div><!-- end .page-sub-title -->
+     @if(Auth::guest())
 
+<h2><B>LOG IN OR SIGN UP  TO ADD COMMENTS</B></h2>
                     </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
+                      @else
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                     <div class="page-sub-title textcenter">
+                    
 
                                      
                                     <form id="comment-form" action="{{url('user_storequery')}}" novalidate autocomplete="off" class="idealforms addcomment" method="POST">
@@ -278,6 +330,9 @@
                                         <span id="invalid"></span>
 
                                     </form>
+                                  
+                                    
+                                    @endif
 
                                 </div><!-- #respond -->
 
@@ -301,14 +356,23 @@
 
         <footer id="footer">
 
-            <div class="footer-copyright">
+             <div class="footer-copyright">
 
                 <div class="container">
                     <div class="row">
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                       have a save ride
+                        <a href='{{url("")}}'  >    <h2 style="color:#63a599"  ><B>  www.carshare.com</B> </h2></a>
+                       
                         </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="float: right;" >
+                        <a href='{{url("")}}'  >    <h3 style="color:#63a599"  >  ABOUT US </h3></a>
+                       
+                        </div>
+
+
+
+
 
                     </div><!-- end .row -->
                 </div><!-- end .container -->
@@ -339,5 +403,8 @@
         <!-- Slicknav  -->
         <script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
 
-    </body>
+  </body>
+
+
+
 </html>

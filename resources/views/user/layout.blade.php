@@ -43,7 +43,7 @@
                            <div class="col-md-12 col-sm-12 col-xs-12">
 
                         <div class="page-sub-title textcenter">
-                            <h2><b>LAST RIDES</b></h2>
+                            <h2  style="background-color:#273a4d; color: #63a599"  ><b>LAST RIDES</b></h2>
                             <div class="line"></div>
                         </div><!-- end .page-sub-title -->
 
