@@ -6,6 +6,7 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\User;
+use App\report_model;
 
 class LogSuccessfulLogin
 {
@@ -14,9 +15,12 @@ class LogSuccessfulLogin
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(report_model $user)
+
     {
-          $this->User=$user;
+        $this->logins=$user;
+
+
     }
 
     /**
@@ -26,11 +30,30 @@ class LogSuccessfulLogin
      * @return void
      */
     public function handle(Login $event)
-    {
-        $qu = $event->user;
-        $user->last_login_at = date('Y-m-d H:i:s');
-        $user->last_login_ip = $this->request->ip();
+
+    {   $user = report_model::find(1);
+
+        $user->logins++;
+
         $user->save();
 
+        if(count($user->logins)<20){
+
+            $traffic=report_model::find(1);
+            $traffic->traffic='LOW';
+            $traffic->save();
+
+
+        }
+     elseif (count($user->logins)>20){
+
+            $traffic=report_model::find(1);
+         $traffic->traffic='NORMAL';
+         $traffic->save();
+     }
+
+
+
     }
+
 }
