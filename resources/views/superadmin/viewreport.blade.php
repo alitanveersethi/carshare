@@ -54,29 +54,40 @@
                    <thead style="background-color:#273a4d; color: #63a599"  >
                    
                    
-                   <th>Time</th>
-                    <th>Nature</th>
-                     <th>Users</th>
-                     <th>Login</th>
-                     <th>Posts</th>
-                   <th>Trafic</th>
-                   <th>Usage</th>
+                   <th><h3><b>REPORT TIME</b></h3></th>
+                    <th><h3><b>TOTAl LOGINS</b></h3></th>
+                    <th><h3><b>TRAFIC</b></h3></th>
+                     <th><h3><b>TOTAL USERS</b></h3></th>
+                     
+                     <th><b><h3>TOTAL POSTS</b></h3></th>
+                   
+              
                      
 
-            <th>Delete</th>
+           
                    </thead>
-                   @foreach($report as $us)
+                  
+                   @foreach($report as $report)
+                   
+                   
+
     <tbody>
     
     <tr>
 
-    <td>{{$us->created_at}}</td>
-    <td>{{$us->admin}}</td>
-    <td>{{$us->users}}</td>
-    <td>{{$us->login}}</td>
-    <td>{{$us->posts}}</td>
-    <td>{{$us->traffic}}</td>
-    <td>{{$us->usage}}</td>
+    <td><b><H1>{{$report->updated_at}}</H1></b></td>
+    <td><b><H1>{{$report->logins}}</H1></b></td>
+    <td><b><H1>{{$report->traffic}}</H1></b></td>
+    @endforeach
+@foreach($user as $user)
+    <td><b><H1>{{$user->id}}</H1></b></td>
+@endforeach
+    
+    @foreach($post as $post) 
+
+    <td><b><H1>{{ $post->id }}</H1><b></td>
+     @endforeach
+   
 
     </tr>
     
@@ -86,8 +97,8 @@
 
 
 
-                               
-                            @endforeach
+                              
+                            
                             </table>
 </div>
 </section>

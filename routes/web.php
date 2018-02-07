@@ -1,5 +1,5 @@
 <?php
-use App\Notifications\Query;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ Route::get('superadmin', function () {
 });
 
     Route::get('admin', function () {
-    return view('admin.layouts');
+    return view('admin.layout');
 
 
 
@@ -36,7 +36,7 @@ Route::get('addride', function () {
     Route::get('postview&{id}', 'UserViewRide@postview');
 
 
-Route::get('view_report','query_controller@ViewReport');
+Route::get('view_report','reportcontroller@Reports');
 Route::get('search','search@search');
 
 

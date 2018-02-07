@@ -15,13 +15,10 @@ class Report extends Migration
     {
         Schema::create('report', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('admin');
             $table->string('users');
-            $table->string('login');
-            $table->string('posts');
+            $table->integer('logins');
+            $table->integer('posts');
             $table->string('traffic');
-            $table->string('usage');
             $table->rememberToken();
             $table->timestamps();
 
