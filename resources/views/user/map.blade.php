@@ -110,7 +110,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                             </div><!-- end .user-log -->
                         </div><!-- end .col-sm-4 -->
 
-                        <a class="navbar-brand" href="{{ url('/user') }}" >
+                        <a class="navbar-brand" href="{{ url('/') }}" >
                        <h3 style="color:#63a599" > <b>CAR SHARE </b> </h3> 
                     </a>
 
@@ -281,29 +281,21 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                                                                             </li>
 
                                 </ol><!-- end .commentslist -->
-                                </div>
-</div>
-</div>
-</div>
+                                
+
                             
-
-                                <div class="clearfix"></div>
-
-                                <div id="respond">
-
-                                    <div class="clearfix"></div>
-                                     <div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12">
 
                           <div class="page-sub-title textcenter">
+
                             <h2  style="background-color:#273a4d; color: #63a599"  ><b>ADD COMMENTS</b></h2>
-                            <div class="line"   ></div>
-                        </div><!-- end .page-sub-title -->
-     @if(Auth::guest())
+                            
+                          
+                                @if(Auth::guest())
 
 <h2><B>LOG IN OR SIGN UP  TO ADD COMMENTS</B></h2>
-                    </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
-                      @else
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                         @else
+                 
                      <div class="page-sub-title textcenter">
                     
 
@@ -312,7 +304,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                                     {{ csrf_field() }}
 
                                         <div class="field">
-                                            <input name="post_id" type="text" placeholder="ID"   value="<?php echo $ride['id'] ?>" >
+                                            <input name="post_id" type="text" placeholder="ID"   value="<?php echo $ride['id'] ?>" required >
                                             <span class="error"></span>
                                         </div>
 
@@ -320,7 +312,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 
                                         <div class="full-fild">
-                                            <textarea name="message" id="message" cols="5" placeholder="Message" rows="4"></textarea>
+                                            <textarea name="message" id="message" cols="5" placeholder="Message" rows="4" required ></textarea>
                                         </div>
 
                                         <div class="field buttons">
@@ -333,6 +325,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                                   
                                     
                                     @endif
+                                    </div>
+                                   
+ 
+                    </div><!-- end .col-md-12 col-sm-12 col-xs-12 -->
+                   
 
                                 </div><!-- #respond -->
 
@@ -344,15 +341,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
                     </div><!-- end .col-md-9 -->
 
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-
-                        
-                    </div><!-- end .col-md-3 -->
+                   
 
                 </div><!-- end .row -->
             </div><!-- end .container -->
 
         </section><!-- end .main-content -->
+        
 
         <footer id="footer">
 

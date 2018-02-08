@@ -34,11 +34,30 @@
                             </div><!-- end .user-log -->
 
                         </div><!-- end .col-sm-4 -->
-                         <a class="navbar-brand" href="{{ url('/user') }}" >
-                       <h3 style="color:#63a599" > <b>HAVE A SAFE RIDE </b> </h3> 
+                         @if(Auth::guest())
+                          <a  class="navbar-brand" href="{{ url('/') }}" >
+                       <h3 style="color:#63a599 " > <b>HAVE A SAFE RIDE</b> </h3> 
+                    </a>
+
+                        
+                    @elseif(Auth::User()->role=="user")
+                     <a class="navbar-brand" href="{{ url('/contact') }}" >
+                       <h3 style="color:#63a599" > <b>PASSENGER "CONTACT IF YOU WANT TO CREATE RIDE" </b> </h3> 
                     </a>
                        
- 
+  
+                    @elseif(Auth::User()->role=="Admin")
+                      <a class="navbar-brand" href="{{ url('/admin') }}" >
+                       <h3 style="color:#63a599" > <b>DRIVER "CLICK HERE TO ADD RIDE"</b> </h3> 
+                    </a>
+                    @else
+                    <a class="navbar-brand" href="{{ url('/superadmin') }}" >
+                       <h3 style="color:#63a599" > <b>ADMIN "CLICK HERE TO OPEN ADMIN PANEL"</b> </h3> 
+                    </a>
+
+                   
+
+                    @endif
 
                        
 
@@ -76,14 +95,14 @@
 
                                                     <div class="col-md-5 col-sm-3 col-xs-12">
                                                         <div class="field">
-                                                            <input style="text-transform: uppercase" type="text" id='source_city' name="source_city" placeholder="SOURCE" ></input>
+                                                            <input style="text-transform: uppercase" type="text" id='source_city' name="source_city" placeholder="SOURCE" required ></input>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-5 col-sm-3 col-xs-12">
 
                                                         <div class="field">
-                                                            <input style="text-transform: uppercase" type="text" id='destination_city' name="destination_city" placeholder="DESTINATION" ></input>         </div>
+                                                            <input style="text-transform: uppercase" type="text" id='destination_city' name="destination_city" placeholder="DESTINATION" required ></input>         </div>
 
                                                     </div>
 

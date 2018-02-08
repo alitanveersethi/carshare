@@ -8,7 +8,7 @@ class report_model extends Model
 {
     protected $table='report';
     protected $fillable = [
-        'admin', 'users', 'login','reports','traffic','usage'
+         'user', 'logins','posts','traffic',
     ];
 
 }

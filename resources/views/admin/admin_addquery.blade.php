@@ -53,13 +53,13 @@
                
                <div class="form-group">
                   <label ><B>RIDE ID</B></label>
-                  <input type="text" class="form-control" id="post_id" name="post_id" value="<?php echo $ride['id'] ?>"   />
+                  <input type="text" class="form-control" id="post_id" name="post_id" value="<?php echo $ride['id'] ?>" required  />
                 </div>
 
                 
                      <div class="form-group">
                   <label ><B>MESSAGE</B></label>
-                 <textarea rows="10" cols="50" name="message" id="message" form="queryform" style=" color:black;    margin: 0px; width: 973px; height: 141px;"></textarea>
+                 <textarea rows="10" cols="50" name="message" id="message" form="queryform" style=" color:black;    margin: 0px; width: 973px; height: 141px;" required></textarea>
                    
                  </textarea>
                   </div>
