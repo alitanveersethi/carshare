@@ -19,11 +19,14 @@
 Route::get('superadmin', function () {
     return view('superadmin.layouts');
 });
+
 Route::get('addride', function () {
     return view('superadmin.addride');
 });
 Route::get('display/{id}', 'UserController@userRole');
 Route::get('view_report','reportcontroller@Reports');
+
+
 Route::get('addquery&{id}','query_controller@index');
 Route::get('viewride','createride@show');
 Route::post('storeride','createride@store');
